@@ -1,3 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .animation-pause {
+    animation-play-state: paused;
+  }
+}
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.customShadow {
+  box-shadow: 0 0 10px rgba(214, 153, 0, 1);
+}
+
+.shadow-navbar {
+  box-shadow: 0 4px 12px rgba(214, 153, 0, 0.2);
+  color: #d69900;
+}

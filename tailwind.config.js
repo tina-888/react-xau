@@ -3,13 +3,33 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        "radial-gradient": "radial-gradient(circle, var(--tw-gradient-stops))",
+      keyframes: {
+        slideRight: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        slideLeft: {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        push: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(0.95)" },
+        },
+      },
+      animation: {
+        slideRight: "slideRight 30s linear infinite",
+        slideLeft: "slideLeft 30s linear infinite",
+        push: "push 0.2s ease-in-out",
       },
       colors: {
-        "gradient-start": "#292c35",
-        "gradient-end": "#17181D",
-        "custom-gold": "#DAA520",
+        "custom-black": " #222831",
+        "custom-blackgrey": "#393E46",
+        "custom-gold-rod": "#D69900",
+        "custom-darkgold": "#636363",
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"'],
       },
     },
   },
