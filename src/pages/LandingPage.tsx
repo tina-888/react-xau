@@ -14,32 +14,32 @@ const LandingPage = () => {
     <div className="items-center justify-between relative w-full">
       <Navbar />
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Hero />
       </div>
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Services />
       </div>
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <News />
       </div>
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Roadmap />
       </div>
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Testimoni />
       </div>
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <PartnershipVcs />
         <PartnershipKOLs />
       </div>
 
-      <div className=" h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Faqs />
       </div>
 

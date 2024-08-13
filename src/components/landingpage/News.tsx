@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const News = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pt-2">
       <div className="text-2xl font-bold font-sans tracking-wider leading-9 text-center text-white">To Keep You Update 🔥</div>
-      <div className="mt-9 w-5/6 max-md:max-w-full">
-        <div className="flex justify-center gap-5 pb-4 max-md:flex-col max-md:gap-0">
+      <div className="mx-auto w-5/6 mt-6 max-md:max-w-full">
+        <div className="flex justify-center gap-5 pb-4 max-md:flex-col max-md:gap-5">
           {/* 1 */}
           <div className="flex flex-col mt-8 w-[408px] h-[488px] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col grow text-white max-md:mt-4">
@@ -45,7 +45,7 @@ const News = () => {
           </div>
 
           {/* 2 */}
-          <div className="flex flex-col mt-8 w-[408px] h-[488px] max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col mt-8 w-[408px] h-[488px] max-md:gap-5 max-md:w-full">
             <div className="flex flex-col grow text-white max-md:mt-4">
               <div className="flex flex-col rounded-2xl border border-custom-gold-rod customShadow h-full">
                 <img

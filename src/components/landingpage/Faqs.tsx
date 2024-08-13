@@ -4,12 +4,12 @@ const Faqs = () => {
   return (
     <div id="Faq" className="items-center justify-between relative w-full ring-gray-900/5 ">
       <div className="mx-auto w-5/6">
-        <div className="flex flex-col justify-center items-start  max-md:pr-5">
-          <div className="flex gap-4 max-md:flex-wrap">
+        <div className="flex flex-col justify-center items-start  max-max-md:pr-5">
+          <div className="flex gap-4 max-max-md:flex-wrap">
             <div className="shrink-0 w-1 bg-custom-gold-rod h-[74px] rounded-[100px]" />
-            <div className="flex flex-col font-sans flex-1 max-md:max-w-full">
-              <div className="text-3xl font-bold tracking-wider text-white max-md:max-w-full">Frequently Asked Questions</div>
-              <div className="mt-2 text-lg font-normal tracking-wide leading-6 text-neutral-400 max-md:max-w-full">Looking for further information? Check out below.</div>
+            <div className="flex flex-col font-sans flex-1 max-max-md:max-w-full">
+              <div className="text-3xl font-bold tracking-wider text-white max-max-md:max-w-full">Frequently Asked Questions</div>
+              <div className="mt-2 text-lg font-normal tracking-wide leading-6 text-neutral-400 max-max-md:max-w-full">Looking for further information? Check out below.</div>
             </div>
           </div>
         </div>

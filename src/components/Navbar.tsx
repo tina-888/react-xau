@@ -44,7 +44,7 @@ const Navbar = () => {
 
             {/* Profile dropdown for larger screens */}
             <div className="relative">
-              <button onClick={toggleDropdown} className="hidden lg:flex items-center p-2 text-white hover:bg-gray-50 rounded">
+              <button onClick={toggleDropdown} className="hidden lg:flex items-center p-2 text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -61,7 +61,7 @@ const Navbar = () => {
                 </svg>
               </button>
               {isDropdownOpen && (
-                <div className="absolute right-0 w-48 mt-2  border border-gray-300 rounded-md shadow-lg">
+                <div className="absolute right-0 w-48 mt-2  border border-gray-300 rounded-max-md shadow-lg">
                   <ul className="py-1">
                     <li>
                       <a href="/profile/me" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white ">

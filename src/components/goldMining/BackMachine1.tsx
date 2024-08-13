@@ -15,8 +15,8 @@ const Backmachine1: React.FC = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-center pb-4">
+    <div className="h-80">
+      <div className="flex  items-center justify-center pb-4">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Payment Form</h1>
       </div>
 

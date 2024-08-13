@@ -4,9 +4,9 @@ const ApplyVcs = () => {
     <div className="items-center justify-between relative w-full">
       <div className="mx-auto w-full grid grid-cols-9 ">
         <div className="col-span-6">
-          <div className="flex flex-col grow font-sans max-md:mt-10 max-md:max-w-full">
-            <div className="text-3xl font-bold tracking-wider text-ellipsis text-white max-md:max-w-full">Partnerships</div>
-            <div className="mt-6 text-lg tracking-wide leading-6 text-justify text-neutral-400 max-md:max-w-full">
+          <div className="flex flex-col grow font-sans max-max-md:mt-10 max-max-md:max-w-full">
+            <div className="text-3xl font-bold tracking-wider text-ellipsis text-white max-max-md:max-w-full">Partnerships</div>
+            <div className="mt-6 text-lg tracking-wide leading-6 text-justify text-neutral-400 max-max-md:max-w-full">
               Luminov is eager to establish alliances with regional cryptocurrency communities. If you manage a Telegram group centered on crypto with over 2,500 active members, please consider joining us as an Official Luminov Partner.
             </div>
           </div>

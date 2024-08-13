@@ -2,14 +2,14 @@ import testimoniData from "../../data/landingpage/Testimoni";
 
 const Testimoni = () => {
   return (
-    <div className="items-center justify-between relative w-full  max-md:px-5">
+    <div className="items-center justify-between relative w-full max-md:px-5">
       <div className="mx-auto w-5/6">
         <div className="self-center text-2xl font-sans font-bold tracking-wider leading-9 text-center text-white">What They Said About Us</div>
         <div className="mt-16 max-md:max-w-full">
-          <div className="flex gap-7 max-md:flex-col max-md:gap-0">
+          <div className="flex gap-7 max-md:flex-col max-md:gap-5">
             {testimoniData.map((testimonial, index) => (
               <div key={index} className="flex flex-col w-[33%] border border-custom-gold-rod rounded-2xl max-md:ml-0 max-md:w-full">
-                <div className="flex flex-col grow rounded-2xl customShadow max-md:mt-4 h-full">
+                <div className="flex flex-col grow rounded-2xl customShadow h-full">
                   <div className="flex flex-col px-4 pt-6 pb-12 rounded-2xl w-full  grow">
                     <div className="flex gap-2 self-start">
                       {[...Array(5)].map((_, starIndex) => (

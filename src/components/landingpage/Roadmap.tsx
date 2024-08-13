@@ -2,19 +2,20 @@ import roadmapData from "../../data/landingpage/Roadmap";
 
 const Roadmap = () => {
   return (
-    <div className="items-center justify-between relative w-full py-12">
-      <div className="mx-auto w-5/6 max-md:mt-10 max-md:max-w-full">
+    <div className="items-center justify-between relative w-full pt-2">
+      <div className="mx-auto w-5/6  max-md:max-w-full">
         <div className="self-center text-2xl font-bold font-sans tracking-wider leading-9 text-center text-white">Our Roadmap</div>
-        <div className="mt-8 max-md:max-w-full">
-          <div className="flex max-md:flex-col max-md:gap-0 justify-center">
+        <div className="max-md:max-w-full">
+          <div className="flex  max-md:flex-col max-md:gap-0 justify-center">
             {/* Q3 */}
             <div className="flex flex-col w-1/2 mt-8 max-md:ml-0 max-md:w-full">
               <div className="flex flex-col grow max-md:mt-10">
                 <div className="relative flex items-center">
                   <div className="flex-grow border-2 border-none"></div>
                   <div className="justify-center self-center px-8 py-2 text-base font-bold font-sans leading-6 text-center bg-custom-gold-rod customShadow rounded-[100px] text-white max-md:px-5">Q3 2024</div>
-                  <div className="flex-grow border-2 border-dashed border-custom-gold-rod"></div>
+                  <div className="flex-grow border-2 border-dashed border-custom-gold-rod max-md:border-none" />
                 </div>
+
                 {/* content */}
                 <div className="flex flex-col mt-10">
                   <div className="flex flex-wrap px-8">
@@ -37,7 +38,7 @@ const Roadmap = () => {
             <div className="flex flex-col w-1/2 mt-8 max-md:ml-0 max-md:w-full">
               <div className="flex flex-col grow max-md:mt-10">
                 <div className="relative flex items-center">
-                  <div className="flex-grow border-2 border-dashed border-custom-gold-rod"></div>
+                  <div className="flex-grow border-2 border-dashed border-custom-gold-rod max-md:border-none" />
                   <div className="justify-center self-center px-8 py-2 text-base font-bold font-sans leading-6 text-center bg-custom-gold-rod customShadow rounded-[100px] text-white max-md:px-5">Q4 2024</div>
                   <div className="flex-grow border-2 border-none"></div>
                 </div>

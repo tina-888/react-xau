@@ -63,7 +63,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal }) => {
             </label>
           </div>
           <div className="my-6">
-            <button type="submit" className="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">
+            <button type="submit" className="w-full rounded-max-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">
               Sign Up
             </button>
           </div>

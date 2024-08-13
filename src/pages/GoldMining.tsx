@@ -17,66 +17,77 @@ const GoldMining = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="items-center justify-between relative w-full ">
+    <div className="items-center justify-between relative w-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
       <Navbar />
-      <div className="h-screen bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
-        <div className="mx-auto pt-24 w-5/6">
-          <div className="w-full h-full grid grid-cols-3 gap-10">
-            <div className={`flip-card ${isFlipped1 ? "flipped" : ""}`}>
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <Machine1 setIsFlipped1={setIsFlipped1} isFlipped1={isFlipped1} />
-                </div>
-                <div className="flip-card-back">
-                  <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
-                    <BackMachine1 />
-                    <div className="mt-8 flex justify-end gap-4">
-                      <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped1((prev) => !prev)}>
-                        Back
-                      </button>
-                      <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
-                        Confirm
-                      </button>
+
+      <div className="py-16 pb-48">
+        <div className="flex flex-col items-center pt-2">
+          <div className="mx-auto w-5/6 mt-2 max-md:max-w-full">
+            <div className="flex justify-center gap-5 pb-4 max-md:flex-col max-md:gap-48">
+              <div className={`flex flex-col mt-8 w-1/3 h-96 max-md:w-full flip-card ${isFlipped1 ? "flipped" : ""}`}>
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+                      <Machine1 setIsFlipped1={setIsFlipped1} isFlipped1={isFlipped1} />
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                    <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+                      <BackMachine1 />
+                      <div className="mt-8 flex justify-end gap-4">
+                        <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped1((prev) => !prev)}>
+                          Back
+                        </button>
+                        <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
+                          Confirm
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={`flip-card ${isFlipped2 ? "flipped" : ""}`}>
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <Machine2 setIsFlipped2={setIsFlipped2} isFlipped2={isFlipped2} />
-                </div>
-                <div className="flip-card-back">
-                  <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
-                    <BackMachine2 />
-                    <div className="mt-8 flex justify-end gap-4">
-                      <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped2((prev) => !prev)}>
-                        Back
-                      </button>
-                      <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
-                        Confirm
-                      </button>
+
+              <div className={`flex flex-col mt-8 w-1/3 h-96  max-md:w-full flip-card ${isFlipped2 ? "flipped" : ""}`}>
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+                      <Machine2 setIsFlipped2={setIsFlipped2} isFlipped2={isFlipped2} />
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                    <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+                      <BackMachine2 />
+                      <div className="mt-8 flex justify-end gap-4">
+                        <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped2((prev) => !prev)}>
+                          Back
+                        </button>
+                        <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
+                          Confirm
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={`flip-card ${isFlipped3 ? "flipped" : ""}`}>
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <Machine3 setIsFlipped3={setIsFlipped3} isFlipped3={isFlipped3} />
-                </div>
-                <div className="flip-card-back">
-                  <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
-                    <BackMachine3 />
-                    <div className="mt-8 flex justify-end gap-4">
-                      <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped3((prev) => !prev)}>
-                        Back
-                      </button>
-                      <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
-                        Confirm
-                      </button>
+
+              <div className={`flex flex-col mt-8 w-1/3 h-96 max-md:w-full flip-card ${isFlipped3 ? "flipped" : ""}`}>
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+                      <Machine3 setIsFlipped3={setIsFlipped3} isFlipped3={isFlipped3} />
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                    <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+                      <BackMachine3 />
+                      <div className="mt-8 flex justify-end gap-4">
+                        <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped3((prev) => !prev)}>
+                          Back
+                        </button>
+                        <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
+                          Confirm
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -84,12 +95,14 @@ const GoldMining = () => {
             </div>
           </div>
         </div>
+
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 w-full h-full">
+            <OrderDetail setShowModal={setShowModal} />
+          </div>
+        )}
       </div>
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 w-full h-full">
-          <OrderDetail setShowModal={setShowModal} />
-        </div>
-      )}
+
       <Footer />
     </div>
   );

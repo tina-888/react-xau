@@ -1,14 +1,14 @@
 const Services = () => {
   return (
-    <div className=" items-center justify-between pt-6 relative w-full">
+    <div className=" items-center justify-between pt-2 relative w-full">
       <div className="relative ">
         <div className="container mx-auto w-5/6">
           <div className="mx-auto text-center">
-            <h2 className="font-display text-2xl font-sans font-bold tracking-tight text-white sm:text-4xl">We Offer You These Services</h2>
+            <h2 className=" text-2xl font-sans font-bold tracking-tight text-white  md:text-4xl ">We Offer You These Services</h2>
           </div>
-          <ul role="list" className="mx-auto grid max-w-2xl grid-cols-1 gap-6 text-sm sm:mt-20 sm:grid-cols-2 md:gap-y-10 lg:max-w-none lg:grid-cols-2">
+          <ul role="list" className="mx-auto grid max-w-2xl grid-cols-1 gap-6 text-sm mt-20 md:grid-cols-2 md:gap-y-10 lg:max-w-none lg:grid-cols-2">
             {/* 1 */}
-            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 sm:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
+            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 md:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
               <span className="absolute -top-6 p-3 border-2 border-custom-gold-rod customShadow rounded-full bg-gray-800">
                 <img src=" /icons/landingPage/services/automatic.svg" className="w-7 h-7 " />
               </span>
@@ -19,7 +19,7 @@ const Services = () => {
               </p>
             </li>
             {/* 2 */}
-            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 sm:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
+            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 md:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
               <span className="absolute -top-6 p-3 border-2 border-custom-gold-rod customShadow rounded-full bg-gray-800">
                 <img src=" /icons/landingPage/services/safety.svg" className="w-7 h-7 " />
               </span>
@@ -30,7 +30,7 @@ const Services = () => {
               </p>
             </li>
             {/* 3 */}
-            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 sm:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
+            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 md:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
               <span className="absolute -top-6 p-3 border-2 border-custom-gold-rod customShadow rounded-full bg-gray-800">
                 <img src=" /icons/landingPage/services/rewards.svg" className="w-7 h-7 " />
               </span>
@@ -41,7 +41,7 @@ const Services = () => {
               </p>
             </li>
             {/* 4 */}
-            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 sm:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
+            <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 md:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
               <span className="absolute -top-6 p-3 border-2 border-custom-gold-rod customShadow rounded-full bg-gray-800">
                 <img src=" /icons/landingPage/services/profits.svg" className="w-7 h-7 " />
               </span>

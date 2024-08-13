@@ -24,7 +24,7 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowModal }) => {
   };
 
   return (
-    <div className="bg-custom-black border rounded-3xl customShadow px-6 py-8 w-md mt-8">
+    <div className="bg-custom-black border rounded-3xl customShadow px-6 py-8 w-max-md mt-8">
       <div className="text-white text-center p-6">
         <h1 className="font-bold text-2xl my-4 text-center text-blue-600">Invoice</h1>
         <hr className="mb-2" />

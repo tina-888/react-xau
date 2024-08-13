@@ -39,7 +39,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal }) => {
             </a>
           </div>
           <div className="my-6">
-            <button type="submit" className="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">
+            <button type="submit" className="w-full rounded-max-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">
               Sign In
             </button>
           </div>

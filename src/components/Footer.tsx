@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <div id="Footer" className="bottom-0 items-center justify-between relative w-full ">
         <div className="bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
-          <div className="mx-auto pt-6 w-full md:w-5/6 flex flex-wrap justify-center">
+          <div className="mx-auto pt-6 w-5/6 max-md:w-5/6 flex flex-wrap justify-center">
             {/* First Column */}
             <div className="py-8 pb-8 w-full md:w-1/2 lg:w-1/4 text-center md:text-left">
               <div className="flex justify-center md:justify-start">
