@@ -1,17 +1,26 @@
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-
+import Modal from "../components/modalLogin/Modal";
 import Confetti from "../components/portfolio/ConfettiCoin";
-// import PieChart from "../components/portfolio/PieChart";
 
-const Portfolio = () => {
+interface PortfolioProps {
+  isLoggedIn: boolean;
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ isLoggedIn }) => {
   return (
     <div>
-      <Navbar />
-      <div className="flex  bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
-        {/* <PieChart /> */}
-        <Confetti />
-      </div>
+      {isLoggedIn ? (
+        <div className="flex bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+          <Confetti />
+        </div>
+      ) : (
+        <div className="flex justify-center items-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black h-screen">
+          <div className="text-center">
+            <p className="text-lg text-gray-400 mb-6 text-center ">Please login to access portfolio</p>
+            <Modal />
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );

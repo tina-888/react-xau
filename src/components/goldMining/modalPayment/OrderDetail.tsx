@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 interface FrontProps {
-  setShowModal: (show: boolean) => void;
+  setShowInvoiceModal: (show: boolean) => void;
 }
 
-const OrderDetail: React.FC<FrontProps> = ({ setShowModal }) => {
+const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModal }) => {
   const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); // 24 hours in seconds
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowModal }) => {
         </table>
         <div className="text-white mb-2">Thank you for your business!</div>
         <div className="text-white text-sm">Please transfer to deposit wallet within {formatTimeLeft()}</div>
-        <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setShowModal(false)}>
+        <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setShowInvoiceModal(false)}>
           Close
         </button>
       </div>

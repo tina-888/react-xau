@@ -1,4 +1,7 @@
+/* font */
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Iceland&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,4 +26,11 @@
 .shadow-navbar {
   box-shadow: 0 4px 12px rgba(214, 153, 0, 0.2);
   color: #d69900;
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+  /* Adjust duration and timing function as needed */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
 }

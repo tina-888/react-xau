@@ -7,13 +7,10 @@ import PartnershipVcs from "../components/landingpage/PartnershipVCs/Partnership
 import Roadmap from "../components/landingpage/Roadmap";
 import Services from "../components/landingpage/Services";
 import Testimoni from "../components/landingpage/Testimoni";
-import Navbar from "../components/Navbar";
 
-const LandingPage = () => {
+const LandingPage: React.FC = () => {
   return (
     <div className="items-center justify-between relative w-full">
-      <Navbar />
-
       <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Hero />
       </div>

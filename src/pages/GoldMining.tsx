@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Machine1 from "../components/goldMining/Machine1";
 import Machine2 from "../components/goldMining/Machine2";
@@ -7,19 +6,24 @@ import Machine3 from "../components/goldMining/Machine3";
 import BackMachine1 from "../components/goldMining/BackMachine1";
 import BackMachine3 from "../components/goldMining/BackMachine3";
 import BackMachine2 from "../components/goldMining/BackMachine2";
-import OrderDetail from "../components/goldMining/modalPayment/OrderDetail";
+import ModalInvoice from "../components/goldMining/modalPayment/OrderDetail";
+
+import Modal from "../components/modalLogin/Modal";
+
 import "../styles/flipCard.css";
 
-const GoldMining = () => {
+interface GoldMiningProps {
+  isLoggedIn: boolean;
+}
+
+const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
   const [isFlipped1, setIsFlipped1] = useState(false);
   const [isFlipped2, setIsFlipped2] = useState(false);
   const [isFlipped3, setIsFlipped3] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showInvoiceModal, setShowInvoiceModal] = useState(false); // Manage invoice modal visibility
 
   return (
     <div className="items-center justify-between relative w-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
-      <Navbar />
-
       <div className="py-16 pb-48">
         <div className="flex flex-col items-center pt-2">
           <div className="mx-auto w-5/6 mt-2 max-md:max-w-full">
@@ -38,9 +42,13 @@ const GoldMining = () => {
                         <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped1((prev) => !prev)}>
                           Back
                         </button>
-                        <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
-                          Confirm
-                        </button>
+                        {isLoggedIn ? (
+                          <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowInvoiceModal(true)}>
+                            Confirm
+                          </button>
+                        ) : (
+                          <Modal />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -61,9 +69,13 @@ const GoldMining = () => {
                         <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped2((prev) => !prev)}>
                           Back
                         </button>
-                        <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
-                          Confirm
-                        </button>
+                        {isLoggedIn ? (
+                          <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowInvoiceModal(true)}>
+                            Confirm
+                          </button>
+                        ) : (
+                          <Modal />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -84,9 +96,13 @@ const GoldMining = () => {
                         <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700" onClick={() => setIsFlipped3((prev) => !prev)}>
                           Back
                         </button>
-                        <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowModal(true)}>
-                          Confirm
-                        </button>
+                        {isLoggedIn ? (
+                          <button className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-700" onClick={() => setShowInvoiceModal(true)}>
+                            Confirm
+                          </button>
+                        ) : (
+                          <Modal />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -96,9 +112,9 @@ const GoldMining = () => {
           </div>
         </div>
 
-        {showModal && (
+        {showInvoiceModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 w-full h-full">
-            <OrderDetail setShowModal={setShowModal} />
+            <ModalInvoice setShowInvoiceModal={setShowInvoiceModal} />
           </div>
         )}
       </div>

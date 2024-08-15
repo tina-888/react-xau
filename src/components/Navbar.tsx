@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
+import Modal from "./modalLogin/Modal";
 
-const Navbar = () => {
+interface NavbarProps {
+  isLoggedIn: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -26,64 +31,72 @@ const Navbar = () => {
   return (
     <>
       <nav className={`sticky top-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black z-50 ${scrolled ? " shadow-navbar" : ""}`}>
-        <div className="w-5/6 flex flex-wrap items-center justify-between py-2 mx-auto ">
+        <div className="w-5/6 flex flex-wrap items-center justify-between py-2 mx-auto">
           <a href="/" className="flex items-center">
             <img src="/icons/LogoXAU.svg" className="h-12" alt="Landwind Logo" />
           </a>
+
           <div className="flex items-center lg:order-2">
-            <div className="lg:hidden">
-              <button onClick={toggleMobileMenu} className="p-2 text-white hover:bg-gray-50 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              </button>
-            </div>
-            <div className="hidden mt-2 mr-4 sm:inline-block">
-              <span></span>
-            </div>
-
-            {/* Profile dropdown for larger screens */}
-            <div className="relative">
-              <button onClick={toggleDropdown} className="hidden lg:flex items-center p-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6 text-white hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                  />
-                </svg>
-              </button>
-              {isDropdownOpen && (
-                <div className="absolute right-0 w-48 mt-2  border border-gray-300 rounded-max-md shadow-lg">
-                  <ul className="py-1">
-                    <li>
-                      <a href="/profile/me" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white ">
-                        My Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white ">
-                        Connect Wallet
-                      </a>
-                    </li>
-
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white ">
-                        Log Out
-                      </a>
-                    </li>
-                  </ul>
+            {isLoggedIn ? (
+              <>
+                <div className="lg:hidden">
+                  <button onClick={toggleMobileMenu} className="p-2 text-white hover:bg-gray-50 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                  </button>
                 </div>
-              )}
-            </div>
+
+                <div className="hidden mt-2 mr-4 sm:inline-block">
+                  <span></span>
+                </div>
+
+                {/* Profile dropdown for larger screens */}
+                <div className="relative">
+                  <button onClick={toggleDropdown} className="hidden lg:flex items-center p-2 text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6 text-white hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                      />
+                    </svg>
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 w-48 mt-2 border bg-slate-700 border-custom-gold-rod rounded-xl shadow-lg">
+                      <ul className="py-1">
+                        <li>
+                          <a href="/profile/me" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
+                            My Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
+                            Connect Wallet
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
+                            Log Out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <Modal />
+            )}
           </div>
+
           <div className={`items-center justify-between w-full lg:flex lg:w-auto lg:order-1 ${isMobileMenuOpen ? "block" : "hidden"} lg:block`} id="mobile-menu-2">
             <ul className="flex flex-col mt-4 font-medium font-sans lg:flex-row lg:space-x-4 lg:mt-0">
               <li>
@@ -97,17 +110,17 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="block py-2 pl-3 pr-4 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
+                <a href="/leaderboard" className="block py-2 pl-3 pr-4 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
                   Leaderboard
                 </a>
               </li>
               <li>
-                <a href="#" className="block py-2 pl-3 pr-4 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
+                <a href="/campaign" className="block py-2 pl-3 pr-4 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
                   Campaign
                 </a>
               </li>
               <li>
-                <a href="#" className="block py-2 pl-3 pr-4 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
+                <a href="/whitepaper" className="block py-2 pl-3 pr-4 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod text-white">
                   Whitepaper
                 </a>
               </li>

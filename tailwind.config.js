@@ -16,6 +16,10 @@ export default {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(0.95)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         slideRight: "slideRight 30s linear infinite",
@@ -30,6 +34,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"'],
+        iceland: ['"Iceland"'],
       },
     },
   },
