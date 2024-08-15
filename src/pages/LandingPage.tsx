@@ -10,7 +10,7 @@ import Testimoni from "../components/landingpage/Testimoni";
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="items-center justify-between relative w-full">
+    <div className="items-center justify-between relative w-full ">
       <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Hero />
       </div>
@@ -36,11 +36,13 @@ const LandingPage: React.FC = () => {
         <PartnershipKOLs />
       </div>
 
-      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div id="Faqs" className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <Faqs />
       </div>
 
-      <Footer />
+      <div id="Contact">
+        <Footer />
+      </div>
     </div>
   );
 };

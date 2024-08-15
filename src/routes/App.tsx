@@ -15,12 +15,15 @@ import ChangePasswordPage from "../pages/profiles/ChangePasswordPage";
 import ComingSoon from "../pages/ComingSoon";
 import Navbar from "../components/Navbar";
 
+import ScrollToTop from "../utils/ScrollToTop";
+
 const App = () => {
   // change false to true
-  const [isLoggedIn] = useState(true);
+  const [isLoggedIn] = useState(false);
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
