@@ -1,6 +1,8 @@
 /* font */
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Iceland&display=swap");
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 @tailwind base;
 @tailwind components;
@@ -24,7 +26,7 @@ html {
 }
 
 .customShadow {
-  box-shadow: 0 0 10px rgba(214, 153, 0, 1);
+  box-shadow: 0 0 12px rgba(214, 153, 0, 1);
 }
 
 .shadow-navbar {
@@ -37,4 +39,16 @@ html {
   /* Adjust duration and timing function as needed */
   white-space: nowrap;
   /* Prevent text from wrapping */
+}
+
+.slick-dots li button:before {
+  color: white;
+  opacity: 1;
+}
+
+/* Change the color of the active dot */
+.slick-dots li.slick-active button:before {
+  color: #d69900;
+  opacity: 1;
+  font-size: 16px;
 }

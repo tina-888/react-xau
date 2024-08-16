@@ -27,19 +27,19 @@ const ChangePassword: React.FC = () => {
             <label htmlFor="currentPassword" className=" text-sm font-medium text-white block mb-2">
               Current Password *
             </label>
-            <input type="password" id="currentPassword" className="w-36 password-input form-input block border border-gray-300 rounded-max-md shadow-sm" required />
+            <input type="password" id="currentPassword" className="w-80 password-input form-input block border border-gray-300 rounded-max-md shadow-sm" required />
           </div>
           <div>
             <label htmlFor="newPassword" className="text-sm font-medium text-white block mb-2">
               New Password *
             </label>
-            <input type="password" id="newPassword" className="w-36 password-input form-input block  border border-gray-300 rounded-max-md shadow-sm" required />
+            <input type="password" id="newPassword" className="w-80 password-input form-input block  border border-gray-300 rounded-max-md shadow-sm" required />
           </div>
           <div>
             <label htmlFor="confirmPassword" className="text-sm font-medium text-white block mb-2">
               Confirm New Password *
             </label>
-            <input type="password" id="confirmPassword" className="w-36 password-input form-input block border border-gray-300 rounded-max-md shadow-sm" required />
+            <input type="password" id="confirmPassword" className="w-80 password-input form-input block border border-gray-300 rounded-max-md shadow-sm" required />
             <button type="button" onClick={clearConfirmPassword} className="text-xs text-blue-600 hover:underline mt-1">
               Clear
             </button>

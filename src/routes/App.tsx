@@ -19,7 +19,7 @@ import ScrollToTop from "../utils/ScrollToTop";
 
 const App = () => {
   // change false to true
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(true);
   return (
     <>
       <BrowserRouter>

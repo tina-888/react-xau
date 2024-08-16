@@ -8,6 +8,9 @@ import BackMachine3 from "../components/goldMining/BackMachine3";
 import BackMachine2 from "../components/goldMining/BackMachine2";
 import ModalInvoice from "../components/goldMining/modalPayment/OrderDetail";
 
+import Login from "./../components/modalLogin/Login";
+import Register from "./../components/modalLogin/Register";
+
 import Modal from "../components/modalLogin/Modal";
 
 import "../styles/flipCard.css";
@@ -21,6 +24,9 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
   const [isFlipped2, setIsFlipped2] = useState(false);
   const [isFlipped3, setIsFlipped3] = useState(false);
   const [showInvoiceModal, setShowInvoiceModal] = useState(false); // Manage invoice modal visibility
+
+  const [showModal, setShowModal] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <div className="items-center justify-between relative w-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
@@ -47,7 +53,13 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
                             Confirm
                           </button>
                         ) : (
-                          <Modal />
+                          <button
+                            className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-custom-gold-rod text-custom-gold dark:text-white hover:bg-custom-gold hover:text-white text-max-md"
+                            onClick={() => setShowModal(true)}
+                          >
+                            Login
+                          </button>
+                          // <Modal />
                         )}
                       </div>
                     </div>
@@ -115,6 +127,23 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
         {showInvoiceModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 w-full h-full">
             <ModalInvoice setShowInvoiceModal={setShowInvoiceModal} />
+          </div>
+        )}
+        {/* Modal */}
+        {showModal && (
+          <div className="fixed inset-0 z-10 flex items-start justify-center pt-12 bg-black bg-opacity-50">
+            <div className="relative mt-16 w-full max-w-md px-6 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+              <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
+                <div className="flip-card-inner">
+                  <div className="flip-card-front w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
+                    <Login setIsFlipped={setIsFlipped} setShowModal={setShowModal} />
+                  </div>
+                  <div className="flip-card-back w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
+                    <Register setIsFlipped={setIsFlipped} setShowModal={setShowModal} />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>

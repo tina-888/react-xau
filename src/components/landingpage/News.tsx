@@ -16,14 +16,14 @@ const News = () => {
                   className="w-full rounded-t-2xl mix-blend-luminosity aspect-[2.04]"
                 />
                 <div className="flex flex-col rounded-b-xl p-4 w-full  h-full">
-                  <Link to="https://t.me/equilos/567" className="text-base font-bold font-sans leading-6">
-                    Tether launches gold-backed, US dollar stablecoin Alloy
+                  <Link to="https://www.dailyfx.com/news/bitcoin-btc-testing-technical-resistance-gold-xau-nudging-higher-20240809.html" target="_blank" className="text-base font-bold font-sans leading-6">
+                    Bitcoin (BTC) Testing Technical Resistance, Gold (XAU) Nudging Higher
                   </Link>
                   <div className="mt-4 text-sm font-sans font-normal tracking-wide leading-6 text-justify line-clamp-6">
-                    The new synthetic dollar is the first step in the rollout of a real-world asset tokenization platform, said Tether. Tether is introducing a gold-backed stablecoin pegged to the U.S. dollar. It is the first tethered
-                    asset, the issuer declared. The new coin is called Alloy (aUSDT) and is mintable on the new Alloy by Tether platform. According to the company, Alloy will be overcollateralized by Tether Gold (XAUt) — a token that
-                    provides ownership of physical gold — but pegged to the U.S. dollar. By definition, the new token is a synthetic dollar, which is designed to mimic the value and functionality of the U.S. dollar without being directly
-                    backed by it. In the same thread, the organization said other tethered assets, including yield-bearing products, could be created on the platform.
+                    The current movements of Bitcoin and gold as of August 9, 2024. Bitcoin is testing significant technical resistance after experiencing a period of volatility. The price is attempting to rise, but this resistance level
+                    could pose a major hurdle for further gains. Observing how Bitcoin reacts to this resistance will be crucial, as breaking through or failing to surpass this level could influence future price trends. On the other hand,
+                    gold (XAU) is showing an upward trend. Gold, often considered a safe-haven asset, typically remains stable during market uncertainties. However, its recent movement indicates a positive trend, possibly driven by global
+                    economic uncertainties or shifts in monetary policy. The article suggests paying attention to macroeconomic factors that could impact gold prices and how market dynamics may evolve over time.
                   </div>
                   <div className="shrink-0 mt-4 h-px border-dashed border-t border-custom-gold-rod border-opacity-10" />
                   <div className="flex gap-4 mt-4 text-sm font-sans font-normal tracking-wide leading-[157%]">
@@ -34,10 +34,10 @@ const News = () => {
                           fill="#021825"
                         />
                       </svg>
-                      <div>June 20, 2024</div>
+                      <div>Aug 09, 2024</div>
                     </div>
                     <div>•</div>
-                    <div>7:26 AM</div>
+                    <div>8:00 PM</div>
                   </div>
                 </div>
               </div>
@@ -54,8 +54,8 @@ const News = () => {
                   className="w-full rounded-t-2xl mix-blend-luminosity aspect-[4]"
                 />
                 <div className="flex flex-col p-4 w-full rounded-b-xl ">
-                  <Link to="https://t.me/equilos/565 " className="text-base font-bold font-sans leading-6">
-                    Crypto Super PAC spends $2M on attack ad targeting NY lawmaker
+                  <Link to="https://finance.yahoo.com/news/ultimate-cryptocurrency-buy-1-000-110800979.html " target="_blank" className="text-base font-bold font-sans leading-6">
+                    The Ultimate Cryptocurrency to Buy With $1,000
                   </Link>
 
                   <div className="shrink-0 mt-4 h-px border-dashed border-t border-custom-gold-rod border-opacity-10" />
@@ -67,10 +67,10 @@ const News = () => {
                           fill="#021825"
                         />
                       </svg>
-                      <div>June 20, 2024</div>
+                      <div>Aug 11, 2024</div>
                     </div>
                     <div>•</div>
-                    <div>7:22 AM</div>
+                    <div>6:08 PM</div>
                   </div>
                 </div>
               </div>
@@ -82,8 +82,8 @@ const News = () => {
                   className="w-full rounded-t-2xl mix-blend-luminosity aspect-[4]"
                 />
                 <div className="flex flex-col p-4 w-full rounded-b-2xl ">
-                  <Link to="https://t.me/equilos/558 " className="text-base font-bold font-sans leading-6">
-                    FTX victims see bankruptcy as another form of theft, seek $8 billion in lost assets.
+                  <Link to="https://cointelegraph.com/news/data-points-to-ethereum-price-making-a-short-term-rally-to-the-3200-level" target="_blank" className="text-base font-bold font-sans leading-6">
+                    Data points to Ethereum price making a short-term rally to the $3.2K level
                   </Link>
 
                   <div className="shrink-0 mt-4 h-px border-dashed border-t border-custom-gold-rod border-opacity-10" />
@@ -95,7 +95,7 @@ const News = () => {
                           fill="#021825"
                         />
                       </svg>
-                      <div>May 19, 2024</div>
+                      <div>Aug 06, 2024</div>
                     </div>
                     <div>•</div>
                     <div>7:11 PM</div>
@@ -114,8 +114,8 @@ const News = () => {
                   className="w-full rounded-t-2xl mix-blend-luminosity aspect-[4]"
                 />
                 <div className="flex flex-col p-4 w-full rounded-b-xl ">
-                  <Link to="https://t.me/equilos/563  " className="text-base font-bold font-sans leading-6">
-                    TikTok could soon be flooded with AI avatars in ads
+                  <Link to="https://cryptonews.net/news/analytics/29548849/" target="_blank" className="text-base font-bold font-sans leading-6">
+                    The Biggest Crypto Predictions for August 2024
                   </Link>
 
                   <div className="shrink-0 mt-4 h-px border-dashed border-t border-custom-gold-rod border-opacity-10" />
@@ -127,10 +127,10 @@ const News = () => {
                           fill="#021825"
                         />
                       </svg>
-                      <div>June 20, 2024</div>
+                      <div>Aug 03, 2024</div>
                     </div>
                     <div>•</div>
-                    <div>7:16 PM</div>
+                    <div>06:10 PM</div>
                   </div>
                 </div>
               </div>
@@ -142,8 +142,8 @@ const News = () => {
                   className="w-full rounded-t-2xl mix-blend-luminosity aspect-[4]"
                 />
                 <div className="flex flex-col p-4 w-full rounded-b-xl ">
-                  <Link to="https://t.me/equilos/561 " className="text-base font-bold font-sans leading-6">
-                    PoliFi Tokens Down Double Digits on Claims DJT Token Has Trump's Backing
+                  <Link to="https://www.dailyfx.com/news/gold-xau-usd-ready-to-print-a-new-all-time-high-latest-sentiment-analysis-20240716.html" target="_blank" className="text-base font-bold font-sans leading-6">
+                    Gold (XAU/USD) - Ready to Print a New All-Time High, Latest Sentiment Analysis
                   </Link>
 
                   <div className="shrink-0 mt-4 h-px border-dashed border-t border-custom-gold-rod border-opacity-10" />
@@ -155,10 +155,10 @@ const News = () => {
                           fill="#021825"
                         />
                       </svg>
-                      <div>June 20, 2024</div>
+                      <div>Jul 16, 2024</div>
                     </div>
                     <div>•</div>
-                    <div>7:08 PM</div>
+                    <div>8:00 PM</div>
                   </div>
                 </div>
               </div>

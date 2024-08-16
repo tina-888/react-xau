@@ -1,16 +1,37 @@
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import testimoniData from "../../data/landingpage/Testimoni";
 
+import "./../../styles/index.css";
+
 const Testimoni = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="items-center justify-between relative w-full max-md:px-5">
       <div className="mx-auto w-5/6">
         <div className="self-center text-2xl font-sans font-bold tracking-wider leading-9 text-center text-white">What They Said About Us</div>
         <div className="mt-16 max-md:max-w-full">
-          <div className="flex gap-7 max-md:flex-col max-md:gap-5">
+          <Slider {...settings}>
             {testimoniData.map((testimonial, index) => (
-              <div key={index} className="flex flex-col w-[33%] border border-custom-gold-rod rounded-2xl max-md:ml-0 max-md:w-full">
-                <div className="flex flex-col grow rounded-2xl customShadow h-full">
-                  <div className="flex flex-col px-4 pt-6 pb-12 rounded-2xl w-full  grow">
+              <div key={index} className="flex flex-col p-2 px-4 w-full rounded-2xl max-md:ml-0 max-md:w-full">
+                <div className="flex flex-col grow rounded-2xl border border-custom-gold-rod customShadow h-full">
+                  <div className="flex flex-col px-4 pt-6 pb-12 rounded-2xl w-full grow">
                     <div className="flex gap-2 self-start">
                       {[...Array(5)].map((_, starIndex) => (
                         <svg key={starIndex} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 fill-custom-gold-rod">
@@ -24,7 +45,7 @@ const Testimoni = () => {
                     </div>
                     <div className="mt-4 text-sm tracking-wide leading-6 font-sans font-normal text-justify text-white">{testimonial.text}</div>
                   </div>
-                  <div className="flex gap-5 p-4 text-justify  border-t border-dashed border-custom-gold-rod border-opacity-50 rounded-b-2xl text-white max-md:pr-5">
+                  <div className="flex gap-5 p-4 text-justify border-t border-dashed border-custom-gold-rod border-opacity-50 rounded-b-2xl text-white max-md:pr-5">
                     {testimonial.img && (
                       <img
                         loading="lazy"
@@ -32,15 +53,19 @@ const Testimoni = () => {
                         className="shrink-0 my-auto w-10 aspect-square rounded-[100px]"
                       />
                     )}
-                    <div className="flex flex-col font-sans">
-                      <div className="text-sm font-bold tracking-wide leading-5">{testimonial.name}</div>
-                      <div className="mt-1 text-xs font-normal tracking-wide leading-5">{testimonial.platform}</div>
+                    <div className="flex flex-col font-sans items-center justify-center">
+                      <div className="text-sm font-bold tracking-wide leading-5">
+                        <Link to={testimonial.url} target="_blank">
+                          {testimonial.name}
+                        </Link>
+                      </div>
+                      {/* <div className="mt-1 text-xs font-normal tracking-wide leading-5">{testimonial.platform}</div> */}
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </div>
     </div>

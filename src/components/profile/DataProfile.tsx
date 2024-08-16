@@ -1,43 +1,29 @@
 const DataProfile = () => {
   return (
-    <div className="items-center mt-8 sm:mt-14 text-[#202142]">
-      <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
-        <div className="w-full">
-          <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">
-            Your first name
-          </label>
-          <input
-            type="text"
-            id="first_name"
-            className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-            placeholder="Your first name"
-            value="Jane"
-            required
-          />
-        </div>
-
-        <div className="w-full">
-          <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">
-            Your last name
-          </label>
-          <input
-            type="text"
-            id="last_name"
-            className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-            placeholder="Your last name"
-            value="Ferguson"
-            required
-          />
-        </div>
+    <div className=" max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg">
+      <div className="px-4 py-5 sm:px-6 bg-slate-700">
+        <h3 className="text-lg leading-6 font-medium text-white">Profile</h3>
+        <p className="mt-1 max-w-2xl text-sm text-white">Details and informations about user.</p>
       </div>
-
-      <div className="flex justify-end">
-        <button
-          type="submit"
-          className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
-        >
-          Save
-        </button>
+      <div className="border-t border-gray-200">
+        <dl>
+          <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-white">Full name</dt>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">Mickael Poulaz</dd>
+          </div>
+          <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-white">Email address</dt>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">m.poul@example.com</dd>
+          </div>
+          <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-white">Referral Code</dt>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">M78FH67</dd>
+          </div>
+          <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-white">About</dt>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself</dd>
+          </div>
+        </dl>
       </div>
     </div>
   );

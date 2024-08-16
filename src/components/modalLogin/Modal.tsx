@@ -10,7 +10,7 @@ const Modal = () => {
   return (
     <>
       {/* Button */}
-      <button className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-custom-gold-rod text-custom-gold dark:text-white hover:bg-custom-gold hover:text-white text-max-md" onClick={() => setShowModal(true)}>
+      <button className="py-2 px-4 rounded-lg bg-transparent border-2 border-custom-gold-rod text-custom-gold dark:text-white hover:bg-custom-gold hover:text-white text-max-md" onClick={() => setShowModal(true)}>
         Login
       </button>
 

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const Backmachine3: React.FC = () => {
   const [miningPower, setMiningPower] = useState<string>("");
 
-  const r = 0.1;
-  const b = 0.05;
+  const r = 1;
+  const b = 0.2;
   const result = (Number(miningPower) + (Number(miningPower) * r) / 100 + (Number(miningPower) * b) / 100) / 12;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,9 +34,9 @@ const Backmachine3: React.FC = () => {
           <span className="ml-2 text-gray-800 dark:text-white text-sm">
             *1 USD = 0.00041089 XAU
             <br />
-            *return 10%
+            *return 1 % / day
             <br />
-            *boost 5%
+            *Bonus 20%
           </span>
         </div>
 

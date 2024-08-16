@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Backmachine1: React.FC = () => {
   const [miningPower, setMiningPower] = useState<string>("");
 
-  const r = 0.1;
+  const r = 0.2;
   const b = 0.05;
   const result = (Number(miningPower) + (Number(miningPower) * r) / 100 + (Number(miningPower) * b) / 100) / 12;
 
@@ -34,7 +34,7 @@ const Backmachine1: React.FC = () => {
           <span className="ml-2 text-gray-800 dark:text-white text-sm">
             *1 USD = 0.00041089 XAU
             <br />
-            *return 10%
+            *return 0.2% / day
             <br />
             *boost 5%
           </span>

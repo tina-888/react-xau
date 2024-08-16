@@ -1,5 +1,4 @@
 import Footer from "../../components/Footer";
-import Avatar from "../../components/profile/Avatar";
 import DataProfile from "../../components/profile/DataProfile";
 import Sidebar from "../../components/profile/Sidebar";
 
@@ -12,8 +11,7 @@ const Profile = () => {
             <div className="w-1/4">
               <Sidebar />
             </div>
-            <div className="w-3/4">
-              <Avatar />
+            <div className="w-3/4 pt-20 h-[500px]">
               <DataProfile />
             </div>
           </div>

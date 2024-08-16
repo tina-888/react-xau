@@ -31,7 +31,7 @@ const LandingPage: React.FC = () => {
         <Testimoni />
       </div>
 
-      <div className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+      <div id="VCs" className="py-16 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
         <PartnershipVcs />
         <PartnershipKOLs />
       </div>
