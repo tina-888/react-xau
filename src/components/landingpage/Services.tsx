@@ -14,7 +14,7 @@ const Services = () => {
               </span>
               <div className="text-lg font-sans font-bold  text-white flex items-center">Automatic Earning</div>
               <p className=" text-sm font-sans font-normal text-white">
-                Mining Gold apps allow users to earn yields passively without needing to actively monitor or manage their investments. The automation ensures that users can generate income continuously, even while they are occupied with
+                Staking Gold apps allow users to earn yields passively without needing to actively monitor or manage their investments. The automation ensures that users can generate income continuously, even while they are occupied with
                 other tasks, maximizing their time and resources.
               </p>
             </li>
@@ -25,8 +25,8 @@ const Services = () => {
               </span>
               <div className="text-lg font-sans font-bold  text-white flex items-center">Safety</div>
               <p className=" text-sm font-sans font-normal text-white">
-                These apps are often designed with robust security features, such as encryption and secure wallet integration, to protect users' assets. They provide a safer alternative to traditional gold mining or investing, as there’s no
-                need to physically handle gold or deal with high-risk environments.
+                These apps are often designed with robust security features, such as encryption and secure wallet integration, to protect users' assets. They provide a safer alternative to traditional Staking Gold or investing, as there’s
+                no need to physically handle gold or deal with high-risk environments.
               </p>
             </li>
             {/* 3 */}
@@ -47,7 +47,7 @@ const Services = () => {
               </span>
               <div className="text-lg font-sans font-bold  text-white flex items-center">Monthly Profits</div>
               <p className=" text-sm font-sans font-medium text-white">
-                Mining Gold apps typically offer regular, predictable returns, allowing users to earn a steady monthly profit. This consistent income can be an attractive feature for those looking to supplement their finances with minimal
+                Staking Gold apps typically offer regular, predictable returns, allowing users to earn a steady monthly profit. This consistent income can be an attractive feature for those looking to supplement their finances with minimal
                 effort, providing financial stability and planning ease.
               </p>
             </li>

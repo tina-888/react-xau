@@ -17,49 +17,49 @@ const Backmachine3: React.FC = () => {
   return (
     <div className="h-80">
       <div className="flex items-center justify-center pb-4">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Payment Form</h1>
+        <h1 className="text-2xl font-bold text-white dark:text-white mb-4">Payment Form</h1>
       </div>
 
       <div className="mb-6">
         <div className="grid gap-4">
           <div>
-            <label htmlFor="mining_power" className="block text-gray-800 dark:text-white mb-1">
-              Mining Power
+            <label htmlFor="mining_power" className="block text-white dark:text-white mb-1">
+              Deposit
             </label>
             <div className="relative w-full">
               <input type="number" id="mining_power" value={miningPower} onChange={handleInputChange} className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" min="0" step="0.001" />
-              <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-800 dark:text-white">USD</span>
+              <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-black dark:text-white">USD</span>
             </div>
           </div>
-          <span className="ml-2 text-gray-800 dark:text-white text-sm">
+          <span className="ml-2 text-white dark:text-white text-sm">
             *1 USD = 0.00041089 XAU
             <br />
-            *return 1 % / day
+            *Return 1 % per day
             <br />
             *Bonus 20%
           </span>
         </div>
 
         <div className="mt-4">
-          <label htmlFor="address" className="block text-gray-800 dark:text-white mb-1">
-            You will get
+          <label htmlFor="address" className="block text-white dark:text-white mb-1">
+            Your profit
           </label>
-          <h1 className="text-gray-800 dark:text-white">
-            {result.toFixed(2)} XAU reward = {miningPower} USD
+          <h1 className="text-white dark:text-white">
+            {result.toFixed(2)} XAU = {miningPower} USD
           </h1>
         </div>
 
         <div className="mt-4">
-          <label htmlFor="payment" className="block text-gray-800 dark:text-white mb-1">
+          <label htmlFor="payment" className="block text-white dark:text-white mb-1">
             Payment Method
           </label>
           <div>
             <input type="radio" id="deposit" name="payment_method" value="deposit" className="mr-2" />
-            <label htmlFor="deposit" className="text-gray-800 dark:text-white mr-4">
+            <label htmlFor="deposit" className="text-white dark:text-white mr-4">
               Deposit
             </label>
             <input type="radio" id="wallet" name="payment_method" value="wallet" className="mr-2" />
-            <label htmlFor="wallet" className="text-gray-800 dark:text-white">
+            <label htmlFor="wallet" className="text-white dark:text-white">
               Connect Wallet
             </label>
           </div>

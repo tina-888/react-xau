@@ -32,7 +32,7 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModal }) => {
   };
 
   return (
-    <div className="bg-custom-black w-1/3 border rounded-3xl customShadow px-6 py-4 w-max-md mt-8">
+    <div className="bg-custom-black w-1/3 border rounded-3xl customShadow px-6 py-4 w-max-md mt-8 relative">
       <div className="text-white text-center p-2">
         <h1 className="font-bold text-2xl mb-4 text-center text-custom-gold-rod">Order Detail</h1>
         <hr className="mb-2" />
@@ -88,10 +88,15 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModal }) => {
         </div>
 
         <div className="mb-4">
-          <input type="text" placeholder="Input deposit wallet" className="w-full p-2 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500" />
+          <input type="text" placeholder="Input txhash" className="w-full p-2 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500" />
         </div>
         <button className="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300" onClick={() => setShowInvoiceModal(false)}>
           Verify
+        </button>
+        <button className="absolute top-4 right-4 text-gray-500 hover:text-white" onClick={() => setShowInvoiceModal(false)} aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
         </button>
       </div>
     </div>

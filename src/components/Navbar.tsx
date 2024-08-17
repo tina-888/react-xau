@@ -117,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
             <ul className="flex flex-col mt-4 font-medium font-sans lg:flex-row lg:space-x-4 lg:mt-0">
               <li>
                 <Link to="/goldmining" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white">
-                  Gold Mining
+                  Gold Earning
                 </Link>
               </li>
               <li>

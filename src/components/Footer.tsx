@@ -37,7 +37,7 @@ const Footer = () => {
               <div className="flex flex-wrap mt-4 text-base leading-6 gap-4 justify-center md:justify-start">
                 <div className="flex flex-col items-center md:items-start">
                   <Link to="/goldmining" className="px-4 py-2 whitespace-nowrap cursor-pointer">
-                    Gold Mining
+                    Staking Gold
                   </Link>
                   <Link to="/portfolio" className="px-4 py-2 cursor-pointer">
                     Portfolio

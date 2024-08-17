@@ -32,13 +32,17 @@ const Confetti = () => {
           </h1>
         </div>
         <div className="flex justify-center items-center py-20 w-full h-full px-3 md:px-0">
-          <div className="w-1/2 customShadow rounded-lg mx-3 max-md:w-full md:mx-4  border-0">
+          <div className="w-5/6 customShadow rounded-lg mx-3 max-md:w-full md:mx-4  border-0">
             <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
               <thead>
                 <tr className="bg-gray-600">
                   <th className="py-2 px-6 text-white font-bold uppercase">Date</th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">Percentage</th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">Amount</th>
+                  <th className="py-2 px-6 text-white font-bold uppercase">
+                    Return <p className="text-xs">per day</p>
+                  </th>
+                  <th className="py-2 px-6 text-white font-bold uppercase">deposit</th>
+                  <th className="py-2 px-6 text-white font-bold uppercase">profit</th>
+                  <th className="py-2 px-6 text-white font-bold uppercase">action</th>
                   <th className="py-2 px-6 text-white font-bold uppercase">Status</th>
                 </tr>
               </thead>
@@ -47,6 +51,10 @@ const Confetti = () => {
                   <td className="py-2 px-6 text-white text-ellipsis truncate">15-08-2024</td>
                   <td className="py-2 px-6 text-white ">8 %</td>
                   <td className="py-2 px-6 text-white">$ 500</td>
+                  <td className="py-2 px-6 text-white">500 XAU</td>
+                  <td className="py-2 px-6 text-white ">
+                    <button className="bg-custom-gold-rod w-20 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Claim</button>
+                  </td>
                   <td className="py-2 px-6 text-white">
                     <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Active</span>
                   </td>

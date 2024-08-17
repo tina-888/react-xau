@@ -29,7 +29,7 @@ const Testimoni = () => {
         <div className="mt-16 max-md:max-w-full">
           <Slider {...settings}>
             {testimoniData.map((testimonial, index) => (
-              <div key={index} className="flex flex-col p-2 px-4 w-full rounded-2xl max-md:ml-0 max-md:w-full">
+              <div key={index} className="flex flex-col p-2 px-4 w-full h-[350px] rounded-2xl max-md:ml-0 max-md:w-full">
                 <div className="flex flex-col grow rounded-2xl border border-custom-gold-rod customShadow h-full">
                   <div className="flex flex-col px-4 pt-6 pb-12 rounded-2xl w-full grow">
                     <div className="flex gap-2 self-start">

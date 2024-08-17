@@ -1,7 +1,7 @@
 const faqData = [
   {
-    question: "What is Gold Mining (XAU)?",
-    answer: "Gold Mining (XAU) is a digital platform that allows investment in gold-backed projects via XAU tokens, offering secure, transparent, and accessible investments through blockchain technology.",
+    question: "What is Staking Gold (XAU)?",
+    answer: "Staking Gold (XAU) is a digital platform that allows investment in gold-backed projects via XAU tokens, offering secure, transparent, and accessible investments through blockchain technology.",
   },
   {
     question: "How do I become a member?",
