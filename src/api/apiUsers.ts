@@ -1,22 +1,45 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
-const register = async (data: any) => {
+// Define the types for request data
+interface RegisterData {
+  email: string;
+  password: string;
+  // Add other fields as necessary
+}
+
+interface LoginData {
+  email: string;
+  password: string;
+}
+
+// Define the types for response data if needed
+interface ApiResponse {
+  // Define the shape of the response data
+  // Example: id: string; token: string;
+}
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
+const register = async (data: RegisterData): Promise<ApiResponse> => {
   try {
-    const result = await axios.post(`${process.env.API_URL}/register`, data);
+    const result = await axios.post<ApiResponse>(`${apiUrl}/register`, data);
     return result.data;
   } catch (error) {
-    console.error("Error during registration:", Error);
+    console.error("Error during registration:", error);
     throw error;
   }
 };
 
-const login = async (data: any) => {
+const login = async (data: LoginData): Promise<ApiResponse> => {
   try {
-    const result = await axios.post(`${process.env.API_URL}/login`, data);
+    const result = await axios.post<ApiResponse>(`${apiUrl}/login`, data);
     return result.data;
   } catch (error) {
-    console.error("Error during login:", Error);
+    if (axios.isAxiosError(error)) {
+      console.error("Error during login:", error.response?.data || error.message);
+    } else {
+      console.error("Unexpected error:", error);
+    }
     throw error;
   }
 };

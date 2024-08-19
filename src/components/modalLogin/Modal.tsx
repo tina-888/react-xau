@@ -3,7 +3,11 @@ import "../../styles/flipCard.css";
 import Login from "./Login";
 import Register from "./Register";
 
-const Modal = () => {
+interface ModalProps {
+  onLogin: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ onLogin }) => {
   const [showModal, setShowModal] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -21,10 +25,10 @@ const Modal = () => {
             <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
               <div className="flip-card-inner">
                 <div className="flip-card-front w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
-                  <Login setIsFlipped={setIsFlipped} setShowModal={setShowModal} />
+                  <Login setIsFlipped={setIsFlipped} setShowModal={setShowModal} onLogin={onLogin} />
                 </div>
                 <div className="flip-card-back w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
-                  <Register setIsFlipped={setIsFlipped} setShowModal={setShowModal} />
+                  <Register setIsFlipped={setIsFlipped} setShowModal={setShowModal} onLogin={onLogin} />
                 </div>
               </div>
             </div>

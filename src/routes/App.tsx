@@ -19,15 +19,40 @@ import ScrollToTop from "../utils/ScrollToTop";
 
 const App = () => {
   // change false to true
-  const [isLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
+    const storedExpiration = localStorage.getItem("expiration");
+    if (storedExpiration) {
+      const expiration = parseInt(storedExpiration, 10);
+      if (new Date().getTime() > expiration) {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("expiration");
+        return false;
+      }
+      return localStorage.getItem("isLoggedIn") === "true";
+    }
+    return false;
+  });
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    const expiration = new Date().getTime() + 24 * 60 * 60 * 1000; // 1 day from now
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("expiration", expiration.toString()); // Save expiration timestamp
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("expiration"); // Clear expiration timestamp
+  };
   return (
     <>
       <BrowserRouter>
         <ScrollToTop />
-        <Navbar isLoggedIn={isLoggedIn} />
+        <Navbar isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/goldmining" element={<GoldMining isLoggedIn={isLoggedIn} />} />
+          <Route path="/goldearning" element={<GoldMining isLoggedIn={isLoggedIn} />} />
           <Route path="/portfolio" element={<Portfolio isLoggedIn={isLoggedIn} />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/campaign" element={<Campaign />} />

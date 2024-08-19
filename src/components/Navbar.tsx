@@ -4,9 +4,11 @@ import Modal from "./modalLogin/Modal";
 
 interface NavbarProps {
   isLoggedIn: boolean;
+  onLogin: () => void;
+  onLogout: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLogin, onLogout }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -99,7 +101,11 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
                           </Link>
                         </li>
                         <li>
-                          <Link to="#" className="block px-4 py-2 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white">
+                          <Link
+                            to="#"
+                            onClick={onLogout} // Add an onClick handler for logging out
+                            className="block px-4 py-2 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white"
+                          >
                             Log Out
                           </Link>
                         </li>
@@ -108,7 +114,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
                   )}
                 </div>
               ) : (
-                <Modal />
+                <Modal onLogin={onLogin} />
               )}
             </>
           </div>
@@ -116,7 +122,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
           <div className={`items-center justify-between w-full lg:flex lg:w-auto lg:order-1 ${isMobileMenuOpen ? "block" : "hidden"} lg:block`} id="mobile-menu-2">
             <ul className="flex flex-col mt-4 font-medium font-sans lg:flex-row lg:space-x-4 lg:mt-0">
               <li>
-                <Link to="/goldmining" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white">
+                <Link to="/goldearning" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white">
                   Gold Earning
                 </Link>
               </li>
@@ -162,7 +168,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/logout" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
+                  <Link to="#" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
                     Log Out
                   </Link>
                 </li>

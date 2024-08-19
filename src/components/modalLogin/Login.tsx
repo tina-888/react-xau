@@ -4,9 +4,10 @@ import apiUser from "../../api/apiUsers"; // Import the API functions
 interface FrontProps {
   setIsFlipped: (flipped: boolean) => void;
   setShowModal: (show: boolean) => void;
+  onLogin: () => void;
 }
 
-const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal }) => {
+const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null); // State to handle error messages
@@ -19,6 +20,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal }) => {
       const data = { email, password };
       const result = await apiUser.login(data);
       console.log("Login successful:", result);
+      onLogin(); // Update isLoggedIn state in App.tsx
       setShowModal(false); // Close the modal or redirect as needed
     } catch (err) {
       // Set the error message from API call
