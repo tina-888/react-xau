@@ -1,27 +1,69 @@
-const DataProfile = () => {
+import React, { useEffect, useState } from "react";
+import apiUser from "../../api/apiUsers"; // Import the API module
+
+interface ProfileData {
+  fullName: string;
+  email: string;
+  referralcode: string;
+  about: string;
+}
+
+const DataProfile: React.FC = () => {
+  const [profileData, setProfileData] = useState<ProfileData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const data = await apiUser.getProfile();
+        setProfileData({
+          fullName: data.email.split("@")[0], // Assuming full name is derived from email or modify as needed
+          email: data.email,
+          referralcode: data.referralcode,
+          about: "To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself", // Assuming a static value for 'about'
+        });
+      } catch (err) {
+        setError("Failed to load profile data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
-    <div className=" max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg">
+    <div className="max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6 bg-slate-700">
         <h3 className="text-lg leading-6 font-medium text-white">Profile</h3>
-        <p className="mt-1 max-w-2xl text-sm text-white">Details and informations about user.</p>
+        <p className="mt-1 max-w-2xl text-sm text-white">Details and information about user.</p>
       </div>
       <div className="border-t border-gray-200">
         <dl>
           <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-white">Full name</dt>
-            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">Mickael Poulaz</dd>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.fullName}</dd>
           </div>
           <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-white">Email address</dt>
-            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">m.poul@example.com</dd>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.email}</dd>
           </div>
           <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-white">Referral Code</dt>
-            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">M78FH67</dd>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.referralcode}</dd>
           </div>
           <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-white">About</dt>
-            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself</dd>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.about}</dd>
           </div>
         </dl>
       </div>

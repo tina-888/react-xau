@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Modal from "../components/modalLogin/Modal";
-import Confetti from "../components/portfolio/ConfettiCoin";
+import Confetti from "../components/portfolio/PortfolioCoin";
 
 interface PortfolioProps {
   isLoggedIn: boolean;

@@ -22,11 +22,14 @@ const Footer = () => {
                 <Link to="https://t.me/+eFpECh7MWPpmMDhl" target="_blank" className="cursor-pointer">
                   <img loading="lazy" src="/icons/landingPage/contact us/telegram.svg" className="shrink-0 w-8 aspect-square" />
                 </Link>
-                <Link to="" target="_blank" className="cursor-pointer">
+                <Link to="https://medium.com/@GoldXAU" target="_blank" className="cursor-pointer">
                   <img loading="lazy" src="/icons/landingPage/contact us/medium.svg" className="shrink-0 w-8 aspect-square" />
                 </Link>
                 <Link to="https://x.com/GoldMining_XAU" target="_blank" className="cursor-pointer">
                   <img loading="lazy" src="/icons/landingPage/contact us/x.svg" className="shrink-0 w-8 aspect-square" />
+                </Link>
+                <Link to="https://www.facebook.com/profile.php?id=61564944772194 " target="_blank" className="cursor-pointer">
+                  <img loading="lazy" src="/icons/landingPage/contact us/facebook.svg" className="shrink-0 w-8 aspect-square" />
                 </Link>
               </div>
             </div>

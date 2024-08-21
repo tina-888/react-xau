@@ -1,14 +1,35 @@
 import React, { useState, useEffect } from "react";
+import apiPayment from "../../../api/apiPayment";
 
 interface FrontProps {
-  setShowInvoiceModal: (show: boolean) => void;
+  setShowInvoiceModalDeposit: (show: boolean) => void;
+}
+interface PaymentData {
+  name: string; // Use lowercase `string`
+  usd: number; // Use `number` for both integer and float
+  xau: number;
+  total: number;
+  status: string;
 }
 
-const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModal }) => {
+const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModalDeposit }) => {
   const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); // 24 hours in seconds
+  const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
   const address = "0xd2099021c7009C3203b17A53e7D5794c94c17e5e";
 
   useEffect(() => {
+    // Fetch payment data when component mounts
+    const fetchPaymentData = async () => {
+      try {
+        const data = await apiPayment.PaymentGet();
+        setPaymentData(data);
+      } catch (error) {
+        console.error("Error fetching payment data:", error);
+      }
+    };
+
+    fetchPaymentData();
+
     const interval = setInterval(() => {
       setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
@@ -41,25 +62,20 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModal }) => {
             <div>Date: 01/05/2023</div>
             <div>ID : INV12345</div>
           </div>
-          {/* <div>
-            <h2>Bill To:</h2>
-            <div>John Doe</div>
-            <div>johndoe@example.com</div>
-          </div> */}
         </div>
-        {/* get data from backend */}
+        {/* get data from machine */}
         <div className="flex items-center space-x-2 py-2">
-          <table className="w-5/6 max-w-4xl ">
+          <table className="w-full max-w-4xl ">
             <tbody>
               <tr>
                 <td className="text-left w-36 text-white">Mining</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td className="text-left text-white">Basic - x USD = xx XAU</td>
+                <td className="text-left text-white">{paymentData ? `${paymentData.name} - $${paymentData.usd} USD = ${paymentData.xau} XAU` : "Loading..."}</td>
               </tr>
               <tr>
                 <td className="text-left  w-36 text-white">Mining Power</td>
                 <td>&nbsp; : &nbsp;</td>
-                <td className="text-left text-white">xx USD = x XAU</td>
+                <td className="text-left text-white">{paymentData ? `$${paymentData.usd} USD = ${paymentData.xau} XAU` : "Loading..."}</td>
               </tr>
             </tbody>
           </table>
@@ -90,10 +106,10 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModal }) => {
         <div className="mb-4">
           <input type="text" placeholder="Input txhash" className="w-full p-2 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500" />
         </div>
-        <button className="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300" onClick={() => setShowInvoiceModal(false)}>
+        <button className="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300" onClick={() => setShowInvoiceModalDeposit(false)}>
           Verify
         </button>
-        <button className="absolute top-4 right-4 text-gray-500 hover:text-white" onClick={() => setShowInvoiceModal(false)} aria-label="Close">
+        <button className="absolute top-4 right-4 text-gray-500 hover:text-white" onClick={() => setShowInvoiceModalDeposit(false)} aria-label="Close">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
