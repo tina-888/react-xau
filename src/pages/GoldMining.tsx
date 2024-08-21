@@ -3,7 +3,8 @@ import Footer from "../components/Footer";
 import Machine1 from "../components/goldMining/Machine1";
 import Machine2 from "../components/goldMining/Machine2";
 import Machine3 from "../components/goldMining/Machine3";
-import ModalInvoiceDeposit from "../components/goldMining/modalPayment/OrderDetail";
+import ModalInvoiceDeposit from "../components/goldMining/modalPayment/DetailDeposit";
+import ModalInvoiceWallet from "../components/goldMining/modalPayment/DetailWallet";
 import "../styles/flipCard.css";
 import apiPayment from "../api/apiPayment";
 
@@ -16,6 +17,7 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
   const [isFlipped2, setIsFlipped2] = useState(false);
   const [isFlipped3, setIsFlipped3] = useState(false);
   const [showInvoiceModalDeposit, setShowInvoiceModalDeposit] = useState(false);
+  const [showInvoiceModalWallet, setShowInvoiceModalWallet] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   // Separate state variables for each card's input
@@ -63,7 +65,7 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
       if (paymentMethod === "deposit") {
         setShowInvoiceModalDeposit(true);
       } else if (paymentMethod === "wallet") {
-        console.log("Wallet selected");
+        setShowInvoiceModalWallet(true);
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -218,6 +220,12 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
             <ModalInvoiceDeposit setShowInvoiceModalDeposit={setShowInvoiceModalDeposit} />
           </div>
         )}
+        {showInvoiceModalWallet && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 w-full h-full">
+            <ModalInvoiceWallet setShowInvoiceModalWallet={setShowInvoiceModalWallet} />
+          </div>
+        )}
+
         {paymentMethod === "wallet" && <div>Wallet</div>}
         {showModal && (
           <div className="fixed inset-0 z-10 flex items-start justify-center pt-12 bg-black bg-opacity-50">
