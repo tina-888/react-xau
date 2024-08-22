@@ -28,6 +28,13 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const register = async (data: RegisterData): Promise<ApiResponse> => {
   try {
     const result = await axios.post<ApiResponse>(`${apiUrl}/register`, data);
+    const { accessToken } = result.data;
+    if (accessToken) {
+      localStorage.setItem("jwtToken", accessToken); // Store token
+      console.log("Token stored:", accessToken); // Debugging
+    } else {
+      console.error("No access token found in response");
+    }
     return result.data;
   } catch (error) {
     console.error("Error during registration:", error);

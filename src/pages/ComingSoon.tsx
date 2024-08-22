@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 
-// import NavbarComing from "../components/comingsoon/NavbarComing";
-
 const ComingSoon = () => {
   useEffect(() => {
-    document.title = "Comingsoon | Luminov Protocol";
+    document.title = "Comingsoon | XAU";
   }, []);
   return (
     <>

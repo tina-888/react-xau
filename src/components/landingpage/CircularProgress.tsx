@@ -30,12 +30,12 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, progres
 
   return (
     <div
-      className="circular-progress relative w-36 h-36 rounded-full flex items-center justify-center"
+      className="circular-progress relative w-36 h-36 rounded-full flex items-center justify-center customShadow"
       style={{
         background: `conic-gradient(${progressColor} ${progressValue * 3.6}deg, ${bgColor} 0deg)`,
         position: "relative",
-        width: "100px",
-        height: "100px",
+        width: "200px",
+        height: "200px",
         borderRadius: "50%",
         display: "flex",
         alignItems: "center",
@@ -47,8 +47,8 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, progres
         className=" text-white font-bold text-lg"
         style={{
           position: "absolute",
-          top: "-40px",
-          fontSize: "27px",
+          top: "-80px",
+          fontSize: "40px",
           fontWeight: "bold",
         }}
       >
@@ -70,7 +70,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, progres
         }}
       >
         {/* Middle Value */}
-        <p className="value " style={{ color: progressColor, fontSize: "28px", fontWeight: "bold" }}>
+        <p className="value " style={{ color: progressColor, fontSize: "50px", fontWeight: "bold" }}>
           {value}
         </p>
       </div>

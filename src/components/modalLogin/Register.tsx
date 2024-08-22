@@ -11,6 +11,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [referralCode, setReferralCode] = useState(""); // State for referral code
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,7 +25,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
     }
 
     try {
-      const data = { email, password };
+      const data = { email, password, referralcodetarget: referralCode || undefined }; // Include referral code
       const result = await apiUser.register(data);
       console.log("Registration successful:", result);
       onLogin(); // Update isLoggedIn state in App.tsx
@@ -38,6 +39,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
       }
     }
   };
+
   return (
     <div>
       <div className="text-center">
@@ -100,15 +102,23 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
               Confirm Password
             </label>
           </div>
-          {/* <div className="relative mt-6">
-            <input type="text" name="code" id="code" placeholder="Referral Code" className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" />
+          <div className="relative mt-6">
+            <input
+              type="text"
+              name="referralCode"
+              id="referral-code"
+              placeholder="Referral Code"
+              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              value={referralCode}
+              onChange={(e) => setReferralCode(e.target.value)} // Capture referral code input
+            />
             <label
-              htmlFor="code"
+              htmlFor="referral-code"
               className="ml-3 pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800"
             >
-              Refferal Code
+              Referral Code (optional)
             </label>
-          </div> */}
+          </div>
           <div className="my-6">
             <button type="submit" className="w-full rounded-max-md rounded-xl bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">
               Sign Up
@@ -125,11 +135,12 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
         </form>
       </div>
       <button className="absolute top-4 right-4 text-gray-500 hover:text-white" onClick={() => setShowModal(false)} aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </button>
     </div>
   );
 };
+
 export default Register;

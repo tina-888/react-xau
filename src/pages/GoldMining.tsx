@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Machine1 from "../components/goldMining/Machine1";
 import Machine2 from "../components/goldMining/Machine2";
@@ -7,12 +7,16 @@ import ModalInvoiceDeposit from "../components/goldMining/modalPayment/DetailDep
 import ModalInvoiceWallet from "../components/goldMining/modalPayment/DetailWallet";
 import "../styles/flipCard.css";
 import apiPayment from "../api/apiPayment";
+import Login from "../components/modalLogin/Login";
+import Register from "../components/modalLogin/Register";
 
 interface GoldMiningProps {
   isLoggedIn: boolean;
+  onLogin: () => void;
 }
 
-const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
+const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
+  const [isFlipped, setIsFlipped] = useState(false); //modal login
   const [isFlipped1, setIsFlipped1] = useState(false);
   const [isFlipped2, setIsFlipped2] = useState(false);
   const [isFlipped3, setIsFlipped3] = useState(false);
@@ -170,6 +174,10 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
     </div>
   );
 
+  useEffect(() => {
+    document.title = "Gold Earning | XAU";
+  }, []);
+
   return (
     <div className="items-center justify-between relative w-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
       <div className="py-16 pb-48">
@@ -230,10 +238,14 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn }) => {
         {showModal && (
           <div className="fixed inset-0 z-10 flex items-start justify-center pt-12 bg-black bg-opacity-50">
             <div className="relative mt-16 w-full max-w-md px-6 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
-              <div className="flip-card">
+              <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
                 <div className="flip-card-inner">
-                  <div className="flip-card-front w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">{/* <Login setShowModal={setShowModal} /> */}</div>
-                  <div className="flip-card-back w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">{/* <Register setShowModal={setShowModal} /> */}</div>
+                  <div className="flip-card-front w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
+                    <Login setIsFlipped={setIsFlipped} setShowModal={setShowModal} onLogin={onLogin} />
+                  </div>
+                  <div className="flip-card-back w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
+                    <Register setIsFlipped={setIsFlipped} setShowModal={setShowModal} onLogin={onLogin} />
+                  </div>
                 </div>
               </div>
             </div>

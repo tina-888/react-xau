@@ -52,18 +52,18 @@ const App = () => {
         <Navbar isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/goldearning" element={<GoldMining isLoggedIn={isLoggedIn} />} />
-          <Route path="/portfolio" element={<Portfolio isLoggedIn={isLoggedIn} />} />
+          <Route path="/goldearning" element={<GoldMining isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
+          <Route path="/portfolio" element={<Portfolio isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/campaign" element={<Campaign />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
 
           <Route path="/comingsoon" element={<ComingSoon />} />
 
-          <Route path="/profile/me" element={<Profile />} />
-          <Route path="/profile/changepassword" element={<ChangePasswordPage />} />
-          <Route path="/profile/wallet" element={<ReferralWalletPage />} />
-          <Route path="/profile/history" element={<HistoryPage />} />
+          <Route path="/profile/me" element={<Profile isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
+          <Route path="/profile/changepassword" element={<ChangePasswordPage isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
+          <Route path="/profile/wallet" element={<ReferralWalletPage isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
+          <Route path="/profile/history" element={<HistoryPage isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
 import myVideo from "/cobavga.gif";
+import StakingCoin from "./StakingCoin";
+import HistoryReward from "./HistoryReward";
 
 const Confetti = () => {
   // const [data, setData] = useState<number>(0);
@@ -23,15 +25,26 @@ const Confetti = () => {
   return (
     <>
       <div className="flex flex-col w-full py-4 items-center justify-center relative overflow-hidden">
-        <div className=" flex items-center justify-center w-full">
-          <img className="w-1/2 h-full py-12" src={myVideo} alt="Circular animation" />
-        </div>
+        <h1 className="text-white">Earning Gold Profit</h1>
         <div className="relative flex flex-col py-4 items-center justify-center">
           <h1 className="flex items-center justify-center text-white font-iceland text-5xl max-md:text-xl" style={{ top: "-10px" }}>
             {xau.toFixed(8)} XAU = {usd.toFixed(8)} USD
           </h1>
         </div>
-        <div className="flex justify-center items-center py-20 w-full h-full px-3 md:px-0">
+
+        {/* iamage */}
+        <div className=" flex items-center justify-center w-full">
+          <img className="w-1/2 h-full py-12 max-md:w-full" src={myVideo} alt="Circular animation" />
+        </div>
+
+        <h1 className="text-white">Earning Your Coin</h1>
+        {/* button */}
+        <div className="flex items-center justify-center w-1/3 max-md:w-full ">
+          <StakingCoin />
+        </div>
+
+        {/* tabel */}
+        <div className="flex justify-center items-center py-20 w-full h-full px-3 md:px-0 max-md:w-full">
           <div className="w-5/6 customShadow rounded-lg mx-3 max-md:w-full md:mx-4  border-0">
             <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
               <thead>
@@ -63,6 +76,10 @@ const Confetti = () => {
               </tbody>
             </table>
           </div>
+        </div>
+
+        <div>
+          <HistoryReward />
         </div>
       </div>
     </>

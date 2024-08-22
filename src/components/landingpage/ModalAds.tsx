@@ -12,9 +12,9 @@ const ModalAds: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="relative flex flex-col justify-center w-[430px] h-[430px] bg-white shadow-lg rounded-2xl overflow-hidden">
+      <div className="relative flex flex-col justify-center w-[830px] h-[430px] bg-white shadow-lg rounded-2xl overflow-hidden">
         <div className="relative w-full h-full">
-          <img src="/images/landingPage/presale.png" alt="presale" className="w-full h-full object-cover" />
+          <img src="/images/landingPage/ads.jpg" alt="presale" className="w-full h-full object-cover" />
           <div className="absolute inset-x-0 bottom-10 flex justify-center h-10 pl-4">
             <Link to="/goldearning" className="inline-flex items-center px-6 py-3 text-base font-semibold text-center text-white bg-custom-gold-rod rounded-3xl hover:bg-white hover:text-custom-gold-rod transition duration-300">
               Join Now

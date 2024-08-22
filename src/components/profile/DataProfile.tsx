@@ -17,13 +17,15 @@ const DataProfile: React.FC = () => {
     const fetchProfile = async () => {
       try {
         const data = await apiUser.getProfile();
+        console.log("Profile Data:", data); // Log the profile data
         setProfileData({
-          fullName: data.email.split("@")[0], // Assuming full name is derived from email or modify as needed
+          fullName: data.email.split("@")[0],
           email: data.email,
           referralcode: data.referralcode,
-          about: "To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself", // Assuming a static value for 'about'
+          about: "To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself",
         });
       } catch (err) {
+        console.error("Error fetching profile:", err); // Log the error
         setError("Failed to load profile data");
       } finally {
         setLoading(false);

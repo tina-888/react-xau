@@ -22,6 +22,9 @@ const LandingPage: React.FC = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  useEffect(() => {
+    document.title = "Home | XAU";
+  }, []);
   return (
     <div className="items-center justify-between relative w-full ">
       <ModalAds isOpen={isModalOpen} onClose={closeModal}></ModalAds>
