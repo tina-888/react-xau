@@ -10,6 +10,8 @@ interface FrontProps {
 const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [accessToken] = useState<string>(""); // Initialize with an empty string
+
   const [error, setError] = useState<string | null>(null); // State to handle error messages
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +19,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
     setError(null); // Clear previous errors
 
     try {
-      const data = { email, password };
+      const data = { email, password, accessToken };
       const result = await apiUser.login(data);
       console.log("Login successful:", result);
       onLogin(); // Update isLoggedIn state in App.tsx

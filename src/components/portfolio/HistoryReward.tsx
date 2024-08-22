@@ -43,34 +43,36 @@ const HistoryReward = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white">
-      <h2 className="text-2xl font-bold mb-4 text-center">Reward History</h2>
-      <table className="table-auto w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">Coin</th>
-            <th className="px-4 py-2">Total Coin</th>
-            <th className="px-4 py-2">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reward.length > 0 ? (
-            reward.map((item, index) => (
-              <tr key={index} className="text-center">
-                <td className="border px-4 py-2">{item.coin}</td>
-                <td className="border px-4 py-2">{item.totalcoin}</td>
-                <td className="border px-4 py-2">{formatDate(item.createdAt)}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan={3} className="border px-4 py-2 text-center">
-                No reward available
-              </td>
+    <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full">
+      <div className="w-full max-w-4xl customShadow rounded-2xl md:mx-4 border-0">
+        <h2 className="text-2xl font-bold mb-4 text-center text-white pt-5">Reward History</h2>
+        <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
+          <thead>
+            <tr className="bg-gray-600">
+              <th className="py-2  text-white font-bold uppercase">Coin</th>
+              <th className="py-2  text-white font-bold uppercase">Total Coin</th>
+              <th className="py-2  text-white font-bold uppercase">Date</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {reward.length > 0 ? (
+              reward.map((item, index) => (
+                <tr key={index} className="text-center">
+                  <td className="py-2  text-white">{item.coin}</td>
+                  <td className="py-2  text-white">{item.totalcoin}</td>
+                  <td className="py-2  text-white text-ellipsis truncate">{formatDate(item.createdAt)}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={3} className="py-2  text-white text-center">
+                  No reward available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

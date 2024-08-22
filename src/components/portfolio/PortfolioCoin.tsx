@@ -25,9 +25,16 @@ const Confetti = () => {
   return (
     <>
       <div className="flex flex-col w-full py-4 items-center justify-center relative overflow-hidden">
-        <h1 className="text-white">Earning Gold Profit</h1>
+        <div className="">
+          <span className="absolute py-6 mx-auto flex border w-fit bg-gradient-to-r blur-xl from-[#ad7600] via-[#D69900] to-[#865600] bg-clip-text text-5xl box-content font-extrabold text-transparent text-center select-none">
+            Earning Gold Profit
+          </span>
+          <h1 className="relative py-6 top-0 w-fit h-auto justify-center flex bg-gradient-to-r items-center from-[#865600] via-[#D69900] to-[#865600] bg-clip-text text-5xl font-extrabold text-transparent text-center select-auto ">
+            Earning Gold Profit
+          </h1>
+        </div>
         <div className="relative flex flex-col py-4 items-center justify-center">
-          <h1 className="flex items-center justify-center text-white font-iceland text-5xl max-md:text-xl" style={{ top: "-10px" }}>
+          <h1 className="flex items-center justify-center text-white font-iceland text-4xl max-md:text-xl" style={{ top: "-10px" }}>
             {xau.toFixed(8)} XAU = {usd.toFixed(8)} USD
           </h1>
         </div>
@@ -36,50 +43,60 @@ const Confetti = () => {
         <div className=" flex items-center justify-center w-full">
           <img className="w-1/2 h-full py-12 max-md:w-full" src={myVideo} alt="Circular animation" />
         </div>
-
-        <h1 className="text-white">Earning Your Coin</h1>
+        <div className="">
+          <span className="absolute py-6 mx-auto flex border w-fit bg-gradient-to-r blur-xl from-[#ad7600] via-[#D69900] to-[#865600] bg-clip-text text-5xl box-content font-extrabold text-transparent text-center select-none">
+            Earning Your Coin
+          </span>
+          <h1 className="relative py-6 top-0 w-fit h-auto justify-center flex bg-gradient-to-r items-center from-[#865600] via-[#D69900] to-[#865600] bg-clip-text text-5xl font-extrabold text-transparent text-center select-auto ">
+            Earning Your Coin
+          </h1>
+        </div>
+        <h1 className="text-white"></h1>
         {/* button */}
-        <div className="flex items-center justify-center w-1/3 max-md:w-full ">
+        <div className="flex items-center pt-10 justify-center w-1/3 max-md:w-full ">
           <StakingCoin />
         </div>
 
         {/* tabel */}
-        <div className="flex justify-center items-center py-20 w-full h-full px-3 md:px-0 max-md:w-full">
-          <div className="w-5/6 customShadow rounded-lg mx-3 max-md:w-full md:mx-4  border-0">
-            <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
-              <thead>
-                <tr className="bg-gray-600">
-                  <th className="py-2 px-6 text-white font-bold uppercase">Date</th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">
-                    Return <p className="text-xs">per day</p>
-                  </th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">deposit</th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">profit</th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">action</th>
-                  <th className="py-2 px-6 text-white font-bold uppercase">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="py-2 px-6 text-white text-ellipsis truncate">15-08-2024</td>
-                  <td className="py-2 px-6 text-white ">8 %</td>
-                  <td className="py-2 px-6 text-white">$ 500</td>
-                  <td className="py-2 px-6 text-white">500 XAU</td>
-                  <td className="py-2 px-6 text-white ">
-                    <button className="bg-custom-gold-rod w-20 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Claim</button>
-                  </td>
-                  <td className="py-2 px-6 text-white">
-                    <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Active</span>
-                  </td>
-                </tr>
-                {/* Add more rows here if needed */}
-              </tbody>
-            </table>
+        <div className="flex w-full items-start justify-center gap-5">
+          <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full">
+            <div className="w-full max-w-4xl customShadow rounded-2xl md:mx-4 border-0">
+              <h2 className="text-2xl font-bold mb-4 text-center text-white pt-5">Earning Gold History</h2>
+              <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
+                <thead>
+                  <tr className="bg-gray-600">
+                    <th className="py-2 px-6 text-white font-bold uppercase">Date</th>
+                    <th className="py-2 px-6 text-white font-bold uppercase">
+                      Return <p className="text-xs">per day</p>
+                    </th>
+                    <th className="py-2 px-6 text-white font-bold uppercase">Deposit</th>
+                    <th className="py-2 px-6 text-white font-bold uppercase">Profit</th>
+                    <th className="py-2 px-6 text-white font-bold uppercase">Action</th>
+                    <th className="py-2 px-6 text-white font-bold uppercase">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="py-2 px-6 text-white text-ellipsis truncate">15-08-2024</td>
+                    <td className="py-2 px-6 text-white">8 %</td>
+                    <td className="py-2 px-6 text-white">$ 500</td>
+                    <td className="py-2 px-6 text-white">500 XAU</td>
+                    <td className="py-2 px-6 text-white">
+                      <button className="bg-custom-gold-rod w-20 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Claim</button>
+                    </td>
+                    <td className="py-2 px-6 text-white">
+                      <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Active</span>
+                    </td>
+                  </tr>
+                  {/* Add more rows here if needed */}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <HistoryReward />
+          <div className="w-1/3">
+            <HistoryReward />
+          </div>
         </div>
       </div>
     </>

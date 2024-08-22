@@ -15,8 +15,8 @@ const Machine2: React.FC<Machine2Props> = ({ setIsFlipped2 }) => {
           <div className="mb-6">
             <h6 className="text-sm text-custom-gold-rod">Start from</h6>
 
-            <span className="absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl from-[#ad7600] via-[#D69900] to-[#865600] bg-clip-text text-5xl box-content font-extrabold text-transparent text-center select-none">$250</span>
-            <h1 className="relative top-0 w-fit h-auto justify-center flex bg-gradient-to-r items-center from-[#865600] via-[#D69900] to-[#865600] bg-clip-text text-5xl font-extrabold text-transparent text-center select-auto ">$250</h1>
+            <span className="absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl from-[#ad7600] via-[#D69900] to-[#865600] bg-clip-text text-5xl box-content font-extrabold text-transparent text-center select-none">$500</span>
+            <h1 className="relative top-0 w-fit h-auto justify-center flex bg-gradient-to-r items-center from-[#865600] via-[#D69900] to-[#865600] bg-clip-text text-5xl font-extrabold text-transparent text-center select-auto ">$500</h1>
           </div>
           <ul className="text-sm text-white mb-16">
             {/* <li className="mb-2 flex items-center">
@@ -29,13 +29,13 @@ const Machine2: React.FC<Machine2Props> = ({ setIsFlipped2 }) => {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" className="w-4 h-4 mr-2 text-green-500">
                 <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
               </svg>
-              Return 0.5% per day
+              Return 0.4% per day
             </li>
             <li className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" className="w-4 h-4 mr-2 text-green-500">
                 <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
               </svg>
-              Bonus 10% tokens $ XAU
+              Bonus 5% tokens $ XAU
             </li>
           </ul>
           <div className="flex justify-center">
