@@ -23,7 +23,7 @@ const ActionButton = () => {
 
   const handleClick = async () => {
     if (buttonState === "start") {
-      const initialCountdown = 120; // Set countdown time in seconds
+      const initialCountdown = 14400; // Set countdown time in seconds
       const now = new Date();
       // Convert now to UTC format
       const nowUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
