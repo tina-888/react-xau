@@ -1,38 +1,78 @@
 import axios from "axios";
 
-interface PaymentData {
+interface AddPaymentData {
   name: string; // Use lowercase `string`
   usd: number; // Use `number` for both integer and float
   xau: number;
   total: number;
   status: string;
 }
-
-interface ApiResponse {}
+interface GetPaymentData {
+  name: string; // Use lowercase `string`
+  usd: number; // Use `number` for both integer and float
+  xau: number;
+  total: number;
+  status: string;
+  createdAt: string;
+}
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const PaymentAdd = async (data: PaymentData): Promise<ApiResponse> => {
+const PaymentAdd = async (data: AddPaymentData): Promise<AddPaymentData> => {
   try {
-    const result = await axios.post<ApiResponse>(`${apiUrl}/payment/add`, data); // Fixed the URL path
+    const token = localStorage.getItem("jwtToken");
+    console.log("Retrieved token:", token);
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+    const result = await axios.post<AddPaymentData>(
+      `${apiUrl}/payment/add`,
+      { ...data },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    ); // Fixed the URL path
     return result.data;
   } catch (error) {
     console.error("Error during payment addition:", error); // Updated the error message for clarity
     throw error;
   }
 };
-const PaymentGet = async (): Promise<PaymentData> => {
+const PaymentGet = async (): Promise<GetPaymentData> => {
   try {
-    const result = await axios.get<PaymentData>(`${apiUrl}/payment/get`);
+    const token = localStorage.getItem("jwtToken");
+    console.log("Retrieved token:", token);
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+    const result = await axios.get<GetPaymentData>(`${apiUrl}/payment/get`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return result.data;
   } catch (error) {
     console.error("Error during payment addition:", error); // Updated the error message for clarity
     throw error;
   }
 };
-const PaymentGetAll = async (): Promise<ApiResponse> => {
+const PaymentGetAll = async (): Promise<GetPaymentData[]> => {
   try {
-    const result = await axios.get<ApiResponse>(`${apiUrl}/payment/getall`);
+    const token = localStorage.getItem("jwtToken");
+    console.log("Retrieved token:", token);
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+    const result = await axios.get<GetPaymentData[]>(`${apiUrl}/payment/getall`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return result.data;
   } catch (error) {
     console.error("Error during payment addition:", error); // Updated the error message for clarity

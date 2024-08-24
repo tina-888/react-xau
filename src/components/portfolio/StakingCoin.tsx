@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import "../../styles/stakingCoin.css";
-import apiReward from "../../api/apiReward"; // Ensure that apiReward is correctly set up
 
-interface RewardData {
+import apiReward from "../../api/apiReward";
+import apiCountdown from "../../api/apiCountdown";
+
+interface AddRewardData {
   coin: number;
-  totalcoin: number; // Ensure property names match the backend API
+  totalcoin: number;
+}
+interface AddCount {
+  countdown_start: string;
+  countdownDuration: number;
 }
 
 const ActionButton = () => {
@@ -13,12 +19,27 @@ const ActionButton = () => {
   const [coin, setCoin] = useState<number>(0);
   const [animationDuration, setAnimationDuration] = useState<number>(0);
 
-  //const [lastCoin, setLastCoin] = useState<RewardData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleClick = async () => {
     if (buttonState === "start") {
-      const initialCountdown = 3; // Set countdown time in seconds
+      const initialCountdown = 120; // Set countdown time in seconds
+      const now = new Date();
+      // Convert now to UTC format
+      const nowUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
+
+      try {
+        const addCountData: AddCount = {
+          countdown_start: nowUTC.toISOString(), // Ensure date is in ISO 8601 format
+          countdownDuration: initialCountdown,
+        };
+        const result = await apiCountdown.CountAdd(addCountData);
+        console.log("API result:", result);
+      } catch (error) {
+        setError("Failed to store start time. Please try again.");
+        console.error("Error storing start time:", error);
+      }
+
       setCountdown(initialCountdown);
       setCoin(0); // Reset coin count to 0
       setButtonState("countdown");
@@ -27,10 +48,20 @@ const ActionButton = () => {
       try {
         // Fetch the most recent reward
         const response = await apiReward.RewardGetLast();
-        const newTotalCoin = response.totalcoin + coin;
-        const rewardData: RewardData = { coin, totalcoin: newTotalCoin };
+        console.log(response);
+
+        if (!response) {
+          throw new Error("Failed to fetch the last reward.");
+        }
+
+        // Determine the new total coin value
+        const newTotalCoin = (response.totalcoin ?? 0) + coin;
+        const rewardData: AddRewardData = { coin, totalcoin: newTotalCoin };
+
         const result = await apiReward.RewardAdd(rewardData);
+
         console.log("Claiming coins result:", result); // Debug result
+
         // Refresh the page
         window.location.reload();
         setButtonState("start");
@@ -40,17 +71,36 @@ const ActionButton = () => {
       }
     }
   };
+  useEffect(() => {
+    const fetchRemainingTime = async () => {
+      try {
+        const response = await fetch("/countdown/remaining");
+        const data = await response.json();
+        if (data.remaining !== undefined) {
+          setCountdown(data.remaining);
+          setButtonState(data.completed ? "claim" : "start");
+        }
+      } catch (error) {
+        console.error("Error fetching remaining time:", error);
+      }
+    };
+
+    fetchRemainingTime();
+  }, []);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (countdown && countdown > 0) {
       timer = setTimeout(() => {
-        setCountdown((prev) => (prev ? prev - 1 : null));
-        setCoin((prev) => prev + 1); // Increase coin every second
+        setCountdown((prev) => {
+          const newCountdown = prev ? prev - 1 : 0;
+          if (newCountdown === 0) {
+            setButtonState("claim");
+          }
+          return newCountdown;
+        });
+        setCoin((prev) => prev + 1); // Increment coin every second
       }, 1000);
-    } else if (countdown === 0) {
-      setButtonState("claim");
-      setCountdown(null);
     }
     return () => clearTimeout(timer);
   }, [countdown]);

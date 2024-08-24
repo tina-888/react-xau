@@ -47,7 +47,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
               name="email"
               id="email"
               placeholder="Email Address"
-              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none "
+              className="peer mt-2 left-3 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none "
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -78,10 +78,10 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
             </label>
           </div>
           <div className="flex items-center justify-between flex-wrap">
-            <label className="text-sm text-gray-400 cursor-pointer" id="remember-me">
+            {/* <label className="text-sm text-gray-400 cursor-pointer" id="remember-me">
               <input className="mr-2" id="remember-me" type="checkbox" />
               Remember me
-            </label>
+            </label> */}
             <a className="text-sm text-blue-500 hover:underline mb-0.5" href="#">
               Forgot password?
             </a>

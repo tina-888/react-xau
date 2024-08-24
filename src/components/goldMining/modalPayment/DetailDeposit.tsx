@@ -53,7 +53,7 @@ const OrderDetail: React.FC<FrontProps> = ({ setShowInvoiceModalDeposit }) => {
   };
 
   return (
-    <div className="bg-custom-black w-1/3 border rounded-3xl customShadow px-6 py-4 w-max-md mt-8 relative">
+    <div className="bg-custom-black w-1/3 border rounded-3xl customShadow px-6 py-4 w-max-md mt-8 relative max-md:w-full">
       <div className="text-white text-center p-2">
         <h1 className="font-bold text-2xl mb-4 text-center text-custom-gold-rod">Order Detail</h1>
         <hr className="mb-2" />

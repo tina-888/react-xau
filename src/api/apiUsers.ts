@@ -4,30 +4,29 @@ import axios from "axios";
 interface RegisterData {
   email: string;
   password: string;
-  // Add other fields as necessary
+  refcodtarget: string;
+  accessToken: string;
 }
 
 interface LoginData {
   email: string;
   password: string;
+  // refcoduser: string;
   accessToken: string;
 }
 interface GetData {
   id: string;
   email: string;
-  referralcode: string;
-}
-
-interface ApiResponse {
+  refcoduser: string;
+  refcodtarget: string;
   accessToken: string;
-  // Add other properties if necessary
 }
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const register = async (data: RegisterData): Promise<ApiResponse> => {
+const register = async (data: RegisterData): Promise<RegisterData> => {
   try {
-    const result = await axios.post<ApiResponse>(`${apiUrl}/register`, data);
+    const result = await axios.post<RegisterData>(`${apiUrl}/register`, data);
     const { accessToken } = result.data;
     if (accessToken) {
       localStorage.setItem("jwtToken", accessToken); // Store token
@@ -42,9 +41,9 @@ const register = async (data: RegisterData): Promise<ApiResponse> => {
   }
 };
 
-const login = async (data: LoginData): Promise<ApiResponse> => {
+const login = async (data: LoginData): Promise<LoginData> => {
   try {
-    const result = await axios.post<ApiResponse>(`${apiUrl}/login`, data);
+    const result = await axios.post<LoginData>(`${apiUrl}/login`, data);
     const { accessToken } = result.data;
     if (accessToken) {
       localStorage.setItem("jwtToken", accessToken); // Store token

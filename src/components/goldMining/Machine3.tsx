@@ -4,7 +4,7 @@ interface Machine3Props {
 }
 const Machine3: React.FC<Machine3Props> = ({ setIsFlipped3 }) => {
   return (
-    <div className="h-[400px] ">
+    <div className="h-[430px]">
       <div className="w-full flex justify-center items-center">
         <img className="w-[8rem] h-[8rem] rounded-full customShadow relative -top-[6rem]" src="/icons/goldMining/mesin3.svg" alt="Profile Image" />
       </div>

@@ -58,15 +58,27 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
     e.preventDefault();
     setError(null);
 
-    const { calculatedResultXAU, convertedToUSD } = calculateValues(cardType, miningPowerInput);
+    // Define minimum values for each card type
+    const minValues: Record<string, number> = {
+      basic: 50,
+      standard: 500,
+      premium: 1000,
+      platinum: 2000,
+    };
 
-    if (isNaN(Number(miningPowerInput)) || Number(miningPowerInput) <= 0) {
+    const { calculatedResultXAU, convertedToUSD } = calculateValues(cardType, miningPowerInput);
+    const numberInput = Number(miningPowerInput);
+    if (isNaN(Number(numberInput)) || Number(numberInput) <= 0) {
       setError("Invalid mining power input.");
+      return;
+    }
+    if (numberInput < minValues[cardType]) {
+      alert(`Minimum deposit for ${cardType} is ${minValues[cardType]} USD.`);
       return;
     }
 
     try {
-      const data = {
+      const AddPaymentData = {
         name: cardType,
         xau: Number(miningPowerInput) * 0.00041089,
         usd: convertedToUSD,
@@ -74,8 +86,10 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
         status: "pending",
       };
 
-      console.log("Sending data:", data);
-      const result = await apiPayment.PaymentAdd(data);
+      console.log("Sending data:", AddPaymentData);
+
+      const result = await apiPayment.PaymentAdd(AddPaymentData);
+
       console.log("Payment successful:", result);
       if (paymentMethod === "deposit") {
         setShowInvoiceModalDeposit(true);
@@ -105,7 +119,7 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
 
     return (
       <div className="flip-card-back">
-        <div className="w-full h-[470px] mx-auto flex flex-col gap-2 p-4 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
+        <div className="w-full h-[500px] mx-auto flex flex-col gap-2 px-16 py-4 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
           <form onSubmit={(e) => handleSendData(e, cardType, miningPowerInput)}>
             <div className="h-80">
               <div className="flex items-center justify-center pb-4">
@@ -115,7 +129,7 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
                 <div className="grid gap-4">
                   <div>
                     <label htmlFor={`mining_power_${cardType}`} className="block text-white dark:text-white mb-1">
-                      Deposit
+                      Deposit Min. {cardType === "basic" ? "$10 USD" : cardType === "standard" ? "$500 USD" : cardType === "premium" ? "$1000 USD" : "$2000 USD"}
                     </label>
                     <div className="relative w-full">
                       <input
@@ -193,9 +207,10 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
       <div className="py-16 pb-48">
         <div className="flex flex-col items-center pt-2">
           <div className="mx-auto w-5/6 mt-10 max-md:w-full max-md:px-4">
-            <div className="flex gap-7 pt-5 justify-center max-md:flex-col max-md:gap-36">
+            <div className="grid grid-cols-2 gap-24 max-md:grid-cols-1 max-md:gap-36">
+              {" "}
               {/* Card 1 */}
-              <div className={`flex flex-col mt-8 w-1/4 h-96 max-md:w-full flip-card ${isFlipped1 ? "flipped" : ""}`}>
+              <div className={`flex flex-col mt-8 mb-20 w-full h-96 max-md:w-full flip-card ${isFlipped1 ? "flipped" : ""}`}>
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
                     <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
@@ -205,9 +220,8 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
                   {renderCardBack("basic", setIsFlipped1, miningPowerInput1, setMiningPowerInput1)}
                 </div>
               </div>
-
               {/* Card 2 */}
-              <div className={`flex flex-col mt-8 w-1/4 h-96 max-md:w-full flip-card ${isFlipped2 ? "flipped" : ""}`}>
+              <div className={`flex flex-col mt-8 mb-20 w-full h-96 max-md:w-full flip-card ${isFlipped2 ? "flipped" : ""}`}>
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
                     <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
@@ -217,9 +231,8 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
                   {renderCardBack("standard", setIsFlipped2, miningPowerInput2, setMiningPowerInput2)}
                 </div>
               </div>
-
               {/* Card 3 */}
-              <div className={`flex flex-col mt-8 w-1/4 h-96 max-md:w-full flip-card ${isFlipped3 ? "flipped" : ""}`}>
+              <div className={`flex flex-col mt-8 mb-20 w-full h-96 max-md:w-full flip-card ${isFlipped3 ? "flipped" : ""}`}>
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
                     <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">
@@ -229,9 +242,8 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
                   {renderCardBack("premium", setIsFlipped3, miningPowerInput3, setMiningPowerInput3)}
                 </div>
               </div>
-
               {/* Card 4 */}
-              <div className={`flex flex-col mt-8 w-1/4 h-96 max-md:w-full flip-card ${isFlipped4 ? "flipped" : ""}`}>
+              <div className={`flex flex-col mt-8 mb-20 w-full h-96 max-md:w-full flip-card ${isFlipped4 ? "flipped" : ""}`}>
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
                     <div className="w-full mx-auto flex flex-col gap-2 p-8 border border-custom-gold-rod rounded-3xl customShadow dark:bg-gray-900">

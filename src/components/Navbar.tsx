@@ -156,23 +156,32 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLogin, onLogout }) => {
                   Contact Us
                 </Link>
               </li>
-              <li>
-                <li>
-                  <Link to="/profile/me" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
-                    My Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/connect-wallet" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
-                    Connect Wallet
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
-                    Log Out
-                  </Link>
-                </li>
-              </li>
+
+              {isLoggedIn ? (
+                <>
+                  <li className="block lg:hidden">
+                    <Link to="/profile/me" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
+                      My Profile
+                    </Link>
+                  </li>
+                  <li className="block lg:hidden">
+                    <Link to="/connect-wallet" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white cursor-pointer lg:hidden">
+                      Connect Wallet
+                    </Link>
+                  </li>
+                  <li className="block lg:hidden">
+                    <Link
+                      to="#"
+                      onClick={onLogout} // Add an onClick handler for logging out
+                      className="block px-4 py-2 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white"
+                    >
+                      Log Out
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <div className="lg:hidden pl-3">{/* <Modal onLogin={onLogin} /> */}</div>
+              )}
             </ul>
           </div>
         </div>

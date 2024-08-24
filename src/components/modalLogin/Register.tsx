@@ -12,6 +12,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [referralCode, setReferralCode] = useState(""); // State for referral code
+  const [accessToken] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +26,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
     }
 
     try {
-      const data = { email, password, referralcodetarget: referralCode || undefined }; // Include referral code
+      const data = { email, password, refcodtarget: referralCode, accessToken }; // Include referral code
       const result = await apiUser.register(data);
       console.log("Registration successful:", result);
       onLogin(); // Update isLoggedIn state in App.tsx

@@ -70,7 +70,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, progres
         }}
       >
         {/* Middle Value */}
-        <p className="value " style={{ color: progressColor, fontSize: "50px", fontWeight: "bold" }}>
+        <p className="value " style={{ color: progressColor, fontSize: "40px", fontWeight: "bold" }}>
           {value}
         </p>
       </div>

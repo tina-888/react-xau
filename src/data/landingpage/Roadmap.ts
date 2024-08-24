@@ -8,6 +8,11 @@ const roadmapData = {
     " Token Design, Burn Mechanism, and Whitepaper",
     " AI Model Design, Planning, and Web3 AI Chatbot Development",
     " Pitching to Tech Giants and Whitepaper v1.0 Release",
+    " Xau marketplace",
+    " Option Xau ",
+    " Holders +100.000",
+    " Listing dibinance",
+    " Target 1coin Xau is the same as the price of gold per Troy once in the world",
   ],
   Q4: [
     " Advanced AI Model Development and Research",

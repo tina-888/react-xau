@@ -10,6 +10,7 @@ interface ProfileData {
 
 const DataProfile: React.FC = () => {
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,10 +19,11 @@ const DataProfile: React.FC = () => {
       try {
         const data = await apiUser.getProfile();
         console.log("Profile Data:", data); // Log the profile data
+
         setProfileData({
           fullName: data.email.split("@")[0],
           email: data.email,
-          referralcode: data.referralcode,
+          referralcode: data.refcoduser,
           about: "To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself",
         });
       } catch (err) {
@@ -44,7 +46,7 @@ const DataProfile: React.FC = () => {
   }
 
   return (
-    <div className="max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg">
+    <div className="max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg rounded-2xl max-md:h-[420px]">
       <div className="px-4 py-5 sm:px-6 bg-slate-700">
         <h3 className="text-lg leading-6 font-medium text-white">Profile</h3>
         <p className="mt-1 max-w-2xl text-sm text-white">Details and information about user.</p>
@@ -65,7 +67,7 @@ const DataProfile: React.FC = () => {
           </div>
           <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-white">About</dt>
-            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.about}</dd>
+            <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2 max-md:truncate">{profileData?.about}</dd>
           </div>
         </dl>
       </div>

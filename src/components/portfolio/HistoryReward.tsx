@@ -9,17 +9,18 @@ interface RewardData {
 
 const HistoryReward = () => {
   const [reward, setReward] = useState<RewardData[]>([]);
+
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchRewards = async () => {
       try {
         const response = await apiReward.RewardGetAll();
-        // Assuming response.data contains the reward array
-        setReward(response as unknown as RewardData[]);
+        setReward(response);
       } catch (err) {
-        setError((err as Error).message || "Failed to fetch reward");
+        console.log(err);
+        // setError("failed to fetch rewards");
       } finally {
         setLoading(false);
       }
@@ -30,6 +31,7 @@ const HistoryReward = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     return date.toLocaleString("en-GB", {
@@ -43,19 +45,25 @@ const HistoryReward = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full">
+    <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full max-md:pt-0">
       <div className="w-full max-w-4xl customShadow rounded-2xl md:mx-4 border-0">
         <h2 className="text-2xl font-bold mb-4 text-center text-white pt-5">Reward History</h2>
         <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
           <thead>
             <tr className="bg-gray-600">
-              <th className="py-2  text-white font-bold uppercase">Coin</th>
+              <th className="py-2 h-16  text-white font-bold uppercase">Coin</th>
               <th className="py-2  text-white font-bold uppercase">Total Coin</th>
               <th className="py-2  text-white font-bold uppercase">Date</th>
             </tr>
           </thead>
           <tbody>
-            {reward.length > 0 ? (
+            {reward.length === 0 ? (
+              <tr>
+                <td></td>
+                <td className="col-span-3 text-center text-white py-2">Data not found</td>
+                <td></td>
+              </tr>
+            ) : (
               reward.map((item, index) => (
                 <tr key={index} className="text-center">
                   <td className="py-2  text-white">{item.coin}</td>
@@ -63,12 +71,6 @@ const HistoryReward = () => {
                   <td className="py-2  text-white text-ellipsis truncate">{formatDate(item.createdAt)}</td>
                 </tr>
               ))
-            ) : (
-              <tr>
-                <td colSpan={3} className="py-2  text-white text-center">
-                  No reward available
-                </td>
-              </tr>
             )}
           </tbody>
         </table>

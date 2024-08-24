@@ -12,7 +12,7 @@ const ChangePasswordPage: React.FC<ChangeProps> = ({ isLoggedIn, onLogin }) => {
     document.title = "Change Password | XAU";
   }, []);
   return (
-    <div className="bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black">
+    <div className="bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black h-screen">
       {isLoggedIn ? (
         <div className="flex bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black items-center justify-center">
           <div className="flex w-5/6">

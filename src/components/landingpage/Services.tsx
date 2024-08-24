@@ -6,7 +6,7 @@ const Services = () => {
           <div className="mx-auto text-center">
             <h2 className=" text-2xl font-sans font-bold tracking-tight text-white  md:text-4xl ">We Offer You These Services</h2>
           </div>
-          <ul role="list" className="mx-auto grid max-w-2xl grid-cols-1 gap-6 text-sm mt-20 md:grid-cols-2 md:gap-y-10 lg:max-w-none lg:grid-cols-2">
+          <ul role="list" className="mx-auto grid max-w-2xl grid-cols-1 gap-6 text-sm mt-20 md:grid-cols-2 md:gap-y-10 lg:max-w-none lg:grid-cols-2 max-md:gap-16">
             {/* 1 */}
             <li className="flex gap-4 rounded-2xl border customShadow border-custom-gold-rod px-8 pt-10 pb-6 col-span-4 md:col-span-2 lg:col-span-1 relative flex-col justify-start items-center">
               <span className="absolute -top-6 p-3 border-2 border-custom-gold-rod customShadow rounded-full bg-gray-800">

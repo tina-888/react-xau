@@ -58,14 +58,14 @@ const Confetti = () => {
         </div>
 
         {/* tabel */}
-        <div className="flex w-full items-start justify-center gap-5">
-          <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full">
+        <div className="flex w-full items-start justify-center gap-5 max-md:flex-col">
+          <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full max-md:pt-20">
             <div className="w-full max-w-4xl customShadow rounded-2xl md:mx-4 border-0">
               <h2 className="text-2xl font-bold mb-4 text-center text-white pt-5">Earning Gold History</h2>
               <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
                 <thead>
                   <tr className="bg-gray-600">
-                    <th className="py-2 px-6 text-white font-bold uppercase">Date</th>
+                    <th className="py-2 px-6 h-16 text-white font-bold uppercase">Date</th>
                     <th className="py-2 px-6 text-white font-bold uppercase">
                       Return <p className="text-xs">per day</p>
                     </th>
@@ -78,14 +78,14 @@ const Confetti = () => {
                 <tbody>
                   <tr>
                     <td className="py-2 px-6 text-white text-ellipsis truncate">15-08-2024</td>
-                    <td className="py-2 px-6 text-white">8 %</td>
-                    <td className="py-2 px-6 text-white">$ 500</td>
-                    <td className="py-2 px-6 text-white">500 XAU</td>
+                    <td className="py-2 px-6 text-white text-ellipsis truncate">8 %</td>
+                    <td className="py-2 px-6 text-white text-ellipsis truncate">$ 500</td>
+                    <td className="py-2 px-6 text-white text-ellipsis truncate">500 XAU</td>
                     <td className="py-2 px-6 text-white">
-                      <button className="bg-custom-gold-rod w-20 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Claim</button>
+                      <button className="bg-custom-gold-rod w-20 text-white py-1 px-2 rounded-full text-xl max-md:text-xs max-md:w-12">Claim</button>
                     </td>
                     <td className="py-2 px-6 text-white">
-                      <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xl max-md:text-xs">Active</span>
+                      <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xl max-md:text-xs max-md:w-12">Active</span>
                     </td>
                   </tr>
                   {/* Add more rows here if needed */}
@@ -94,7 +94,7 @@ const Confetti = () => {
             </div>
           </div>
 
-          <div className="w-1/3">
+          <div className="w-1/3 max-md:w-full">
             <HistoryReward />
           </div>
         </div>
