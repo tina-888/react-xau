@@ -81,10 +81,10 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
             {/* <label className="text-sm text-gray-400 cursor-pointer" id="remember-me">
               <input className="mr-2" id="remember-me" type="checkbox" />
               Remember me
-            </label> */}
+            </label>
             <a className="text-sm text-blue-500 hover:underline mb-0.5" href="#">
               Forgot password?
-            </a>
+            </a> */}
           </div>
           <div className="my-6">
             <button type="submit" className="w-full rounded-xl bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">

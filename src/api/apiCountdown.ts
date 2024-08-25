@@ -4,6 +4,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 interface AddCount {
   countdown_start: string;
   countdownDuration: number;
+  completed: boolean;
 }
 
 const CountAdd = async (data: AddCount): Promise<AddCount> => {

@@ -8,101 +8,120 @@ interface AddRewardData {
   coin: number;
   totalcoin: number;
 }
+
 interface AddCount {
   countdown_start: string;
   countdownDuration: number;
+  completed: boolean; // Optional field
 }
 
 const ActionButton = () => {
+  const initialCountdown = 14400; // Set countdown time in seconds
   const [buttonState, setButtonState] = useState<"start" | "countdown" | "claim">("start");
-  const [countdown, setCountdown] = useState<number | null>(null);
+  const [countdown, setCountdown] = useState<number>(0);
   const [coin, setCoin] = useState<number>(0);
   const [animationDuration, setAnimationDuration] = useState<number>(0);
-
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const savedEndTime = localStorage.getItem("count_end_time");
+    const savedCountdown = localStorage.getItem("count_timer");
+    const savedCoin = localStorage.getItem("coin_count");
+
+    if (savedEndTime) {
+      const endTime = new Date(parseInt(savedEndTime));
+      const now = new Date();
+      const remainingTime = Math.max(Math.floor((endTime.getTime() - now.getTime()) / 1000), 0);
+
+      if (remainingTime > 0) {
+        setCountdown(remainingTime);
+        setButtonState("countdown");
+        setAnimationDuration(remainingTime);
+      }
+    }
+
+    if (savedCountdown) {
+      setCountdown(parseInt(savedCountdown));
+    }
+
+    if (savedCoin) {
+      setCoin(parseInt(savedCoin));
+    }
+  }, []);
 
   const handleClick = async () => {
     if (buttonState === "start") {
-      const initialCountdown = 14400; // Set countdown time in seconds
       const now = new Date();
-      // Convert now to UTC format
-      const nowUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
+      const endTime = new Date(now.getTime() + initialCountdown * 1000);
 
       try {
         const addCountData: AddCount = {
-          countdown_start: nowUTC.toISOString(), // Ensure date is in ISO 8601 format
+          countdown_start: now.toISOString(),
           countdownDuration: initialCountdown,
+          completed: false,
         };
-        const result = await apiCountdown.CountAdd(addCountData);
-        console.log("API result:", result);
+        await apiCountdown.CountAdd(addCountData);
+        localStorage.setItem("count_end_time", endTime.getTime().toString());
+        localStorage.setItem("count_timer", initialCountdown.toString());
+        localStorage.setItem("coin_count", "0"); // Reset coin count
       } catch (error) {
         setError("Failed to store start time. Please try again.");
         console.error("Error storing start time:", error);
       }
 
       setCountdown(initialCountdown);
-      setCoin(0); // Reset coin count to 0
+      setCoin(0);
       setButtonState("countdown");
       setAnimationDuration(initialCountdown);
     } else if (buttonState === "claim") {
       try {
-        // Fetch the most recent reward
         const response = await apiReward.RewardGetLast();
-        console.log(response);
-
         if (!response) {
           throw new Error("Failed to fetch the last reward.");
         }
 
-        // Determine the new total coin value
         const newTotalCoin = (response.totalcoin ?? 0) + coin;
         const rewardData: AddRewardData = { coin, totalcoin: newTotalCoin };
 
-        const result = await apiReward.RewardAdd(rewardData);
-
-        console.log("Claiming coins result:", result); // Debug result
-
-        // Refresh the page
+        await apiReward.RewardAdd(rewardData);
         window.location.reload();
         setButtonState("start");
+        localStorage.removeItem("count_end_time");
+        localStorage.removeItem("count_timer");
+        localStorage.removeItem("coin_count");
       } catch (error) {
         setError("Failed to claim reward. Please try again.");
         console.error("Error claiming reward:", error);
       }
     }
   };
+
   useEffect(() => {
-    const fetchRemainingTime = async () => {
-      try {
-        const response = await fetch("/countdown/remaining");
-        const data = await response.json();
-        if (data.remaining !== undefined) {
-          setCountdown(data.remaining);
-          setButtonState(data.completed ? "claim" : "start");
+    const updateCountdown = () => {
+      setCountdown((prev) => {
+        if (prev <= 0) {
+          setButtonState("claim");
+          localStorage.removeItem("count_end_time");
+          localStorage.removeItem("count_timer");
+          localStorage.removeItem("coin_count");
+          return 0;
         }
-      } catch (error) {
-        console.error("Error fetching remaining time:", error);
-      }
+
+        const newCountdown = prev - 1;
+        localStorage.setItem("count_timer", newCountdown.toString());
+        setCoin((prevCoin) => {
+          const newCoin = prevCoin + 1;
+          localStorage.setItem("coin_count", newCoin.toString());
+          return newCoin;
+        });
+        return newCountdown;
+      });
     };
 
-    fetchRemainingTime();
-  }, []);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (countdown && countdown > 0) {
-      timer = setTimeout(() => {
-        setCountdown((prev) => {
-          const newCountdown = prev ? prev - 1 : 0;
-          if (newCountdown === 0) {
-            setButtonState("claim");
-          }
-          return newCountdown;
-        });
-        setCoin((prev) => prev + 1); // Increment coin every second
-      }, 1000);
+    if (countdown > 0) {
+      const timerId = setInterval(updateCountdown, 1000);
+      return () => clearInterval(timerId);
     }
-    return () => clearTimeout(timer);
   }, [countdown]);
 
   if (error) return <p>{error}</p>;

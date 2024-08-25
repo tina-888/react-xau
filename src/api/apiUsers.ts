@@ -14,12 +14,15 @@ interface LoginData {
   // refcoduser: string;
   accessToken: string;
 }
-interface GetData {
-  id: string;
+interface UpdateProfile {
   email: string;
+  fullname: string;
   refcoduser: string;
-  refcodtarget: string;
-  accessToken: string;
+  about: string;
+}
+interface UpdatePasswordResponse {
+  success: boolean;
+  message: string;
 }
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -62,7 +65,7 @@ const login = async (data: LoginData): Promise<LoginData> => {
   }
 };
 
-const getProfile = async (): Promise<GetData> => {
+const getProfile = async (): Promise<UpdateProfile> => {
   try {
     const token = localStorage.getItem("jwtToken");
     console.log("Retrieved token:", token);
@@ -71,7 +74,7 @@ const getProfile = async (): Promise<GetData> => {
       throw new Error("No JWT token found");
     }
 
-    const response = await axios.get<GetData>(`${apiUrl}/profile`, {
+    const response = await axios.get<UpdateProfile>(`${apiUrl}/profile`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -96,8 +99,63 @@ const getProfile = async (): Promise<GetData> => {
   }
 };
 
+const updatePassword = async (currentPassword: string, newPassword: string): Promise<UpdatePasswordResponse> => {
+  try {
+    const token = localStorage.getItem("jwtToken");
+    console.log("Retrieved token:", token);
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+
+    const response = await axios.patch<UpdatePasswordResponse>(
+      `${apiUrl}/password`,
+      { currentPassword, newPassword },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error updating password:", error);
+
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "An error occurred while updating the password.",
+    };
+  }
+};
+
+const updateProfile = async (profileData: Omit<UpdateProfile, "accessToken">) => {
+  try {
+    const token = localStorage.getItem("jwtToken");
+    console.log("Retrieved token:", token);
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+
+    const response = await axios.put(`${apiUrl}/profile`, profileData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error updating profile:", error);
+
+    throw error;
+  }
+};
+
 export default {
   register,
   login,
   getProfile,
+  updatePassword,
+  updateProfile,
 };
