@@ -51,7 +51,7 @@ const HistoryReward = () => {
         <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
           <thead>
             <tr className="bg-gray-600">
-              <th className="py-2 h-16  text-white font-bold uppercase">Coin</th>
+              <th className="py-2 h-16  text-white font-bold uppercase max-md:h-8">Coin</th>
               <th className="py-2  text-white font-bold uppercase">Total Coin</th>
               <th className="py-2  text-white font-bold uppercase">Date</th>
             </tr>

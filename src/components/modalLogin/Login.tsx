@@ -11,6 +11,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accessToken] = useState<string>(""); // Initialize with an empty string
+  // const [showModalReset, setShowModalReset] = useState(false);
 
   const [error, setError] = useState<string | null>(null); // State to handle error messages
 
@@ -47,7 +48,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
               name="email"
               id="email"
               placeholder="Email Address"
-              className="peer mt-2 left-3 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none "
+              className="peer mt-2 pl-3 left-3 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 text-black placeholder:text-transparent focus:border-gray-500 focus:outline-none "
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -65,7 +66,7 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
               name="password"
               id="password"
               placeholder="Password"
-              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              className="peer mt-2 pl-3 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 text-black placeholder:text-transparent focus:border-gray-500 focus:outline-none"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -81,8 +82,8 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
             {/* <label className="text-sm text-gray-400 cursor-pointer" id="remember-me">
               <input className="mr-2" id="remember-me" type="checkbox" />
               Remember me
-            </label>
-            <a className="text-sm text-blue-500 hover:underline mb-0.5" href="#">
+            </label>*/}
+            {/* <a className="text-sm pl-1 text-blue-500 hover:underline mb-0.5" href="#" onClick={() => setShowModalReset(true)}>
               Forgot password?
             </a> */}
           </div>
@@ -94,18 +95,22 @@ const Login: React.FC<FrontProps> = ({ setIsFlipped, setShowModal, onLogin }) =>
           {error && <p className="text-center text-sm text-red-500">{error}</p>}
           <p className="text-center text-sm text-gray-500">
             Don't have an account yet? &nbsp;
-            <a onClick={() => setIsFlipped(true)} className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none cursor-pointer">
+            <a onClick={() => setIsFlipped(true)} className="font-semibold text-blue-700 hover:underline focus:text-gray-800 focus:outline-none cursor-pointer">
               Sign Up
             </a>
             .
           </p>
         </form>
       </div>
-      <button className="absolute top-4 right-4 text-gray-500 hover:text-white" onClick={() => setShowModal(false)} aria-label="Close">
+      <button className="absolute top-4 right-4 text-gray-500 hover:text-custom-gold-rod transition duration-300" onClick={() => setShowModal(false)} aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
       </button>
+      {/* Modal */}
+      {/* {showModalRe && (
+
+            )} */}
     </div>
   );
 };

@@ -55,7 +55,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
               name="email"
               id="signup-email"
               placeholder="Email Address"
-              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              className="peer mt-2 pl-3 w-full border-b-2 border-gray-300 rounded-md px-0 text-black py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -73,7 +73,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
               name="password"
               id="signup-password"
               placeholder="Password"
-              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              className="peer mt-2 pl-3 w-full border-b-2 border-gray-300 rounded-md px-0 text-black py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -91,7 +91,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
               name="confirmpassword"
               id="confirm-password"
               placeholder="Confirm Password"
-              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              className="peer mt-2 pl-3 w-full border-b-2 border-gray-300 rounded-md px-0 text-black py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -109,7 +109,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
               name="referralCode"
               id="referral-code"
               placeholder="Referral Code"
-              className="peer mt-2 w-full border-b-2 border-gray-300 rounded-md px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              className="peer mt-2 pl-3 w-full border-b-2 border-gray-300 rounded-md px-0 text-black py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
               value={referralCode}
               onChange={(e) => setReferralCode(e.target.value)} // Capture referral code input
             />
@@ -135,7 +135,7 @@ const Register: React.FC<BackProps> = ({ setIsFlipped, setShowModal, onLogin }) 
           </p>
         </form>
       </div>
-      <button className="absolute top-4 right-4 text-gray-500 hover:text-white" onClick={() => setShowModal(false)} aria-label="Close">
+      <button className="absolute top-4 right-4 text-gray-500 hover:text-custom-gold-rod transition duration-300" onClick={() => setShowModal(false)} aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>

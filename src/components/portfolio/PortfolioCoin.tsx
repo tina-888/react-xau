@@ -53,20 +53,19 @@ const Confetti = () => {
         </div>
         <h1 className="text-white"></h1>
         {/* button */}
-        <div className="flex items-center pt-10 justify-center w-1/3 max-md:w-full ">
+        <div className="flex items-center pt-10 justify-center w-1/3 max-md:w-full max-md:px-6 ">
           <StakingCoin />
         </div>
-
         {/* tabel */}
-        <div className="flex w-full items-start justify-center gap-5 max-md:flex-col">
-          <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full max-md:pt-20">
+        <div className="flex w-full items-start justify-center gap-5 max-md:flex-col ">
+          <div className="flex justify-center items-center py-20 md:px-0 max-md:w-full max-md:pt-20 max-md:px-6">
             <div className="w-full max-w-4xl customShadow rounded-2xl md:mx-4 border-0">
               <h2 className="text-2xl font-bold mb-4 text-center text-white pt-5">Earning Gold History</h2>
               <table className="w-full table-fixed text-center text-2xl font-iceland max-md:text-sm">
                 <thead>
                   <tr className="bg-gray-600">
-                    <th className="py-2 px-6 h-16 text-white font-bold uppercase">Date</th>
-                    <th className="py-2 px-6 text-white font-bold uppercase">
+                    <th className="py-2 px-6 h-16 text-white font-bold uppercase max-md:h-8">Date</th>
+                    <th className="py-2 px-6 text-white font-bold uppercase text-ellipsis truncate">
                       Return <p className="text-xs">per day</p>
                     </th>
                     <th className="py-2 px-6 text-white font-bold uppercase">Deposit</th>
@@ -94,7 +93,7 @@ const Confetti = () => {
             </div>
           </div>
 
-          <div className="w-1/3 max-md:w-full">
+          <div className="w-1/3 max-md:w-full max-md:px-6">
             <HistoryReward />
           </div>
         </div>

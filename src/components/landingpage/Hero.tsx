@@ -51,7 +51,7 @@ const Hero = () => {
               <p className="pt-8 text-sm font-normal text-slate-200">
                 Staking Gold apps provide automatic earning, robust safety features, compounding rewards, and consistent monthly profits, making them a smart and secure choice for passive income.
               </p>
-              <div className="flex flex-col w-60 justify-center  mt-8 max-md:pb-12 max-md:items-center max-md:justify-start max-md:w-full">
+              <div className="flex flex-col w-60 justify-center  mt-8 max-md:mt-20 max-md:pb-12 max-md:items-center max-md:justify-start max-md:w-full">
                 <Link to={"/goldearning"} className="inline-flex items-center px-8 py-3 text-base font-semibold text-center text-white bg-custom-gold-rod rounded-3xl hover:bg-black/90 focus:ring-4 focus:ring-custom-gold-rod/50">
                   Presale (Staking XAU)
                 </Link>
@@ -99,7 +99,7 @@ const Hero = () => {
           </div>
           <div className="w-full flex flex-wrap items-center justify-stretch mx-auto rounded-2xl">
             <div className="items-center w-full justify-stretch mx-auto">
-              <div className="flex gap-48 items-center justify-center max-md:flex-col max-md:gap-5">
+              <div className="flex gap-48 items-center justify-center max-md:flex-col max-md:gap-16 max-md:py-8 max-md:pt-20">
                 <div className="items-center justify-center transform transition duration-300 hover:scale-110  h-[280px] w-[250px] ">
                   <div className="flex items-center flex-col pt-16 w-full  max-md:ml-0 max-md:w-full">
                     <CircularProgress

@@ -79,8 +79,8 @@ const DataProfile: React.FC = () => {
 
   return (
     <>
-      <div className="max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg rounded-2xl max-md:h-[420px]">
-        <div className=" py-5 sm:px-6 bg-slate-700">
+      <div className="max-w-2xl shadow overflow-hidden customShadow sm:rounded-lg rounded-2xl max-md:h-[430px]">
+        <div className=" py-5 px-6 max-md:px-6 bg-slate-700">
           <div className="flex items-center justify-between bg-slate-700 rounded-t-md">
             <span className="text-xl font-semibold text-white">Profile</span>
             <button onClick={() => setShowModal(true)} className="" aria-label="Open Profile Modal">
@@ -96,23 +96,23 @@ const DataProfile: React.FC = () => {
 
           <p className="mt-1 max-w-2xl text-sm text-white">Details and information about user.</p>
         </div>
-        <div className="border-t border-gray-200">
+        <div className="border-t border-gray-200 ">
           <dl>
-            <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 max-md:px-7">
               <dt className="text-sm font-medium text-white">Full name</dt>
               <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.fullname}</dd>
             </div>
-            <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 max-md:px-7">
               <dt className="text-sm font-medium text-white">Email address</dt>
               <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.email}</dd>
             </div>
-            <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="bg-slate-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 max-md:px-7">
               <dt className="text-sm font-medium text-white">Referral Code</dt>
               <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">{profileData?.refcoduser}</dd>
             </div>
-            <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="bg-slate-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 max-md:px-7">
               <dt className="text-sm font-medium text-white">About</dt>
-              <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2 max-md:truncate">{profileData?.about}</dd>
+              <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2 max-md:text-ellipsis max-md:truncate">{profileData?.about}</dd>
             </div>
           </dl>
         </div>

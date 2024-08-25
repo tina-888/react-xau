@@ -271,13 +271,13 @@ const GoldMining: React.FC<GoldMiningProps> = ({ isLoggedIn, onLogin }) => {
         {paymentMethod === "wallet" && <div>Wallet</div>}
         {showModal && (
           <div className="fixed inset-0 z-10 flex items-start justify-center pt-12 bg-black bg-opacity-50">
-            <div className="relative mt-16 w-full max-w-md px-6 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+            <div className="relative mt-16 w-full max-w-md px-6 shadow-xl ring-1 ring-gray-900/5  rounded-2xl max-md:rounded-2xl">
               <div className={`flip-card ${isFlippedLogin ? "flipped" : ""}`}>
                 <div className="flip-card-inner">
-                  <div className="flip-card-front w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
+                  <div className="flip-card-front w-full flex items-center justify-center p-8 customShadow bg-slate-200 rounded-2xl max-md:rounded-2xl">
                     <Login setIsFlipped={setIsFlippedLogin} setShowModal={setShowModal} onLogin={onLogin} />
                   </div>
-                  <div className="flip-card-back w-full flex items-center justify-center p-8 customShadow bg-slate-200 sm:rounded-xl sm:px-10">
+                  <div className="flip-card-back w-full flex items-center justify-center p-8 customShadow bg-slate-200  rounded-2xl max-md:rounded-2xl">
                     <Register setIsFlipped={setIsFlippedLogin} setShowModal={setShowModal} onLogin={onLogin} />
                   </div>
                 </div>

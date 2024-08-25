@@ -128,7 +128,7 @@ const ActionButton = () => {
 
   return (
     <div
-      className={`relative h-16 w-full bg-custom-gold-rod rounded-3xl cursor-pointer shadow-lg overflow-hidden ${buttonState === "countdown" ? "progress disabled" : ""}`}
+      className={`relative h-16 w-full bg-custom-gold-rod rounded-3xl cursor-pointer shadow-lg  overflow-hidden ${buttonState === "countdown" ? "progress disabled" : ""}`}
       style={{ "--animation-duration": `${animationDuration}s` } as React.CSSProperties}
       onClick={buttonState !== "countdown" ? handleClick : undefined}
     >

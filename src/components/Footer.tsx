@@ -18,24 +18,26 @@ const Footer = () => {
                   <p>"Earn Effortlessly, Secure Your Future—Gold at Your Fingertips"</p>
                 </blockquote>
               </div>
-              <div className="flex gap-4 pr-6 pt-12">
-                <Link
-                  to="https://t.me/xauofficialchannel
+              <div className="flex max-md:items-center max-md:justify-center">
+                <div className="flex gap-4 pr-6 pt-12 ">
+                  <Link
+                    to="https://t.me/xauofficialchannel
 "
-                  target="_blank"
-                  className="cursor-pointer"
-                >
-                  <img loading="lazy" src="/icons/landingPage/contact us/telegram.svg" className="shrink-0 w-8 aspect-square" />
-                </Link>
-                <Link to="https://medium.com/@GoldXAU" target="_blank" className="cursor-pointer">
-                  <img loading="lazy" src="/icons/landingPage/contact us/medium.svg" className="shrink-0 w-8 aspect-square" />
-                </Link>
-                <Link to="https://x.com/goldxauofficial" target="_blank" className="cursor-pointer">
-                  <img loading="lazy" src="/icons/landingPage/contact us/x.svg" className="shrink-0 w-8 aspect-square" />
-                </Link>
-                <Link to="https://www.facebook.com/profile.php?id=61564944772194 " target="_blank" className="cursor-pointer">
-                  <img loading="lazy" src="/icons/landingPage/contact us/facebook.svg" className="shrink-0 w-8 aspect-square" />
-                </Link>
+                    target="_blank"
+                    className="cursor-pointer"
+                  >
+                    <img loading="lazy" src="/icons/landingPage/contact us/telegram.svg" className="shrink-0 w-8 aspect-square" />
+                  </Link>
+                  <Link to="https://medium.com/@GoldXAU" target="_blank" className="cursor-pointer">
+                    <img loading="lazy" src="/icons/landingPage/contact us/medium.svg" className="shrink-0 w-8 aspect-square" />
+                  </Link>
+                  <Link to="https://x.com/goldxauofficial" target="_blank" className="cursor-pointer">
+                    <img loading="lazy" src="/icons/landingPage/contact us/x.svg" className="shrink-0 w-8 aspect-square" />
+                  </Link>
+                  <Link to="https://www.facebook.com/profile.php?id=61564944772194 " target="_blank" className="cursor-pointer">
+                    <img loading="lazy" src="/icons/landingPage/contact us/facebook.svg" className="shrink-0 w-8 aspect-square" />
+                  </Link>
+                </div>
               </div>
             </div>
 
