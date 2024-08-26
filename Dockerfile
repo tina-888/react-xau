@@ -18,7 +18,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port that serve will use
-EXPOSE 5173
+EXPOSE 3000
 
 # Start the application
 CMD [ "serve", "-n", "-s", "dist" ]

@@ -12,7 +12,7 @@ interface AddRewardData {
 interface AddCount {
   countdown_start: string;
   countdownDuration: number;
-  completed: boolean; // Optional field
+  completed: boolean;
 }
 
 const ActionButton = () => {
@@ -42,6 +42,9 @@ const ActionButton = () => {
 
     if (savedCountdown) {
       setCountdown(parseInt(savedCountdown));
+      setButtonState(parseInt(savedCountdown) > 0 ? "countdown" : "claim");
+    } else {
+      setButtonState("start");
     }
 
     if (savedCoin) {
@@ -63,7 +66,7 @@ const ActionButton = () => {
         await apiCountdown.CountAdd(addCountData);
         localStorage.setItem("count_end_time", endTime.getTime().toString());
         localStorage.setItem("count_timer", initialCountdown.toString());
-        localStorage.setItem("coin_count", "0"); // Reset coin count
+        localStorage.setItem("coin_count", "0");
       } catch (error) {
         setError("Failed to store start time. Please try again.");
         console.error("Error storing start time:", error);
@@ -100,6 +103,7 @@ const ActionButton = () => {
     const updateCountdown = () => {
       setCountdown((prev) => {
         if (prev <= 0) {
+          console.log("Countdown ended, setting button state to claim");
           setButtonState("claim");
           localStorage.removeItem("count_end_time");
           localStorage.removeItem("count_timer");
@@ -128,7 +132,7 @@ const ActionButton = () => {
 
   return (
     <div
-      className={`relative h-16 w-full bg-custom-gold-rod rounded-3xl cursor-pointer shadow-lg  overflow-hidden ${buttonState === "countdown" ? "progress disabled" : ""}`}
+      className={`relative h-16 w-full bg-custom-gold-rod rounded-3xl cursor-pointer shadow-lg overflow-hidden ${buttonState === "countdown" ? "progress disabled" : ""}`}
       style={{ "--animation-duration": `${animationDuration}s` } as React.CSSProperties}
       onClick={buttonState !== "countdown" ? handleClick : undefined}
     >

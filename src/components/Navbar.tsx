@@ -142,7 +142,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLogin, onLogout }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/whitepaper" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white">
+                <Link to="/marketplace" className="block py-2 pl-3 pr-4 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-gold-rod max-md:hover:text-custom-gold-rod text-white">
                   Marketplace
                 </Link>
               </li>

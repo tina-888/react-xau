@@ -31,7 +31,7 @@ export default {
         "custom-black": " #222831",
         "custom-blackgrey": "#393E46",
         "custom-gold-rod": "#D69900",
-        "custom-darkgold": "#636363",
+        "custom-darkgold": "#a2790d",
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"'],
