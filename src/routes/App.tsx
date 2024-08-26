@@ -16,6 +16,7 @@ import ComingSoon from "../pages/ComingSoon";
 import Navbar from "../components/Navbar";
 
 import ScrollToTop from "../utils/ScrollToTop";
+import Marketplace from "../pages/Marketplace";
 
 const App = () => {
   // change false to true
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/campaign" element={<Campaign />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/marketplace" element={<Marketplace />} />
 
           <Route path="/comingsoon" element={<ComingSoon />} />
 

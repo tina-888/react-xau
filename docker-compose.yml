@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: .
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app/frontend
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - VITE_API_URL=${VITE_API_URL}
+      - VITE_PROJECT_ID=${VITE_PROJECT_ID}
+    stdin_open: true
+    tty: true
