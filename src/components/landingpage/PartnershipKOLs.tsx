@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import KOLs from "../../data/landingpage/PartnershipKOLs";
+import ScrollReveal from "scrollreveal";
 
 const PartnershipKOLs = () => {
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
   return (
-    <div className="items-center justify-center relative w-full">
+    <div className="items-center justify-center relative w-full fade-in">
       <section className="relative">
         <div className="container mx-auto h-full w-5/6 pt-2 ">
           <div id="Kol" className="flex flex-col justify-end self-stretch font-bold">

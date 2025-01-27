@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../../styles/stakingCoin.css";
+import { SuccessAlert } from "../Alerts/Alerts";
 
 import apiReward from "../../api/apiReward";
 import apiCountdown from "../../api/apiCountdown";
@@ -16,12 +17,13 @@ interface AddCount {
 }
 
 const ActionButton = () => {
-  const initialCountdown = 14400; // Set countdown time in seconds
+  const initialCountdown = 2; // Set countdown time in seconds
   const [buttonState, setButtonState] = useState<"start" | "countdown" | "claim">("start");
   const [countdown, setCountdown] = useState<number>(0);
   const [coin, setCoin] = useState<number>(0);
   const [animationDuration, setAnimationDuration] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
+  const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
 
   useEffect(() => {
     const savedEndTime = localStorage.getItem("count_end_time");
@@ -37,12 +39,13 @@ const ActionButton = () => {
         setCountdown(remainingTime);
         setButtonState("countdown");
         setAnimationDuration(remainingTime);
+      } else {
+        setButtonState("claim"); // Automatically set to claim if the time has passed
       }
-    }
-
-    if (savedCountdown) {
-      setCountdown(parseInt(savedCountdown));
-      setButtonState(parseInt(savedCountdown) > 0 ? "countdown" : "claim");
+    } else if (savedCountdown) {
+      const savedTime = parseInt(savedCountdown);
+      setCountdown(savedTime);
+      setButtonState(savedTime > 0 ? "countdown" : "claim");
     } else {
       setButtonState("start");
     }
@@ -87,7 +90,9 @@ const ActionButton = () => {
         const rewardData: AddRewardData = { coin, totalcoin: newTotalCoin };
 
         await apiReward.RewardAdd(rewardData);
-        window.location.reload();
+        setShowSuccessPopup(true);
+        setTimeout(() => setShowSuccessPopup(false), 3000);
+        // window.location.reload();
         setButtonState("start");
         localStorage.removeItem("count_end_time");
         localStorage.removeItem("count_timer");
@@ -145,6 +150,7 @@ const ActionButton = () => {
         </span>
         {buttonState === "countdown" && <span className="absolute right-4 text-lg font-normal">+{coin} coins</span>}
       </div>
+      {showSuccessPopup && <SuccessAlert message="Your reward has been claimed." />}
     </div>
   );
 };

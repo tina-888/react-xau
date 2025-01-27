@@ -17,6 +17,7 @@ import Navbar from "../components/Navbar";
 
 import ScrollToTop from "../utils/ScrollToTop";
 import Marketplace from "../pages/Marketplace";
+import NotFound from "../pages/NotFound";
 
 const App = () => {
   // change false to true
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/campaign" element={<Campaign />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/campaign" element={<Campaign />} />
           <Route path="/marketplace" element={<Marketplace />} />
 
           <Route path="/comingsoon" element={<ComingSoon />} />
@@ -66,6 +68,7 @@ const App = () => {
           <Route path="/profile/changepassword" element={<ChangePasswordPage isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
           <Route path="/profile/wallet" element={<ReferralWalletPage isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
           <Route path="/profile/history" element={<HistoryPage isLoggedIn={isLoggedIn} onLogin={handleLogin} />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

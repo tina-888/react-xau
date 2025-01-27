@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ScrollReveal from "scrollreveal";
 import CircularProgress from "./CircularProgress";
 import "../../styles/index.css";
 
@@ -35,10 +36,19 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
+
   return (
-    <div className="items-center justify-center relative w-full">
+    <div className="items-center justify-center relative w-full fade-in">
       <section className="relative">
-        <div className="container mx-auto h-full w-5/6">
+        <div className="container mx-auto h-full w-5/6 ">
           <div className="flex flex-wrap items-center justify-center mx-auto">
             <div className="w-full md:w-3/5 order-1 md:order-2 flex items-center justify-center">
               <img src="/images/landingPage/mining.png" alt="mockup" className="w-full" />
@@ -100,7 +110,7 @@ const Hero = () => {
           <div className="w-full flex flex-wrap items-center justify-stretch mx-auto rounded-2xl">
             <div className="items-center w-full justify-stretch mx-auto">
               <div className="flex gap-48 items-center justify-center max-md:flex-col max-md:gap-16 max-md:py-8 max-md:pt-20">
-                <div className="items-center justify-center transform transition duration-300 hover:scale-110  h-[280px] w-[250px] ">
+                <div className="items-center justify-center transform transition duration-300 hover:scale-110  h-[280px] w-[250px]">
                   <div className="flex items-center flex-col pt-16 w-full  max-md:ml-0 max-md:w-full">
                     <CircularProgress
                       percentage={80} // This controls the fill level

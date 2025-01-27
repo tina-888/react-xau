@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Footer from "../components/Footer";
 import Faqs from "../components/landingpage/Faqs";
 import Hero from "../components/landingpage/Hero";
@@ -25,6 +24,7 @@ const LandingPage: React.FC = () => {
   useEffect(() => {
     document.title = "Home | XAU";
   }, []);
+
   return (
     <div className="items-center justify-between relative w-full ">
       <ModalAds isOpen={isModalOpen} onClose={closeModal}></ModalAds>

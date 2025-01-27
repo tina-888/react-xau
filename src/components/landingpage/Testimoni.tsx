@@ -1,8 +1,10 @@
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import testimoniData from "../../data/landingpage/Testimoni";
+import ScrollReveal from "scrollreveal";
 
 import "./../../styles/index.css";
+import { useEffect } from "react";
 
 const Testimoni = () => {
   const settings = {
@@ -21,9 +23,16 @@ const Testimoni = () => {
       },
     ],
   };
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
 
   return (
-    <div className="items-center justify-between relative w-full max-md:px-5">
+    <div className="items-center justify-between relative w-full max-md:px-5 fade-in">
       <div className="mx-auto w-5/6">
         <div className="self-center text-2xl font-sans font-bold tracking-wider leading-9 text-center text-white">What They Said About Us</div>
         <div className="mt-16 max-md:max-w-full">

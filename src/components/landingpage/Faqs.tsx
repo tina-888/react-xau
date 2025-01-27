@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import faqData from "../../data/landingpage/FAQs";
+import ScrollReveal from "scrollreveal";
 
 const Faqs = () => {
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
   return (
-    <div id="Faq" className="items-center justify-between relative w-full ring-gray-900/5 ">
+    <div id="Faq" className="items-center justify-between relative w-full ring-gray-900/5 fade-in">
       <div className="mx-auto w-5/6">
         <div className="flex flex-col justify-center items-start  max-max-md:pr-5">
           <div className="flex gap-4 max-max-md:flex-wrap">

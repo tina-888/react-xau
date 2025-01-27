@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLogin, onLogout }) => {
 
   return (
     <>
-      <nav className={`sticky top-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black z-50 ${scrolled ? " shadow-navbar" : ""}`}>
+      <nav className={`sticky top-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-custom-blackgrey to-custom-black z-40 ${scrolled ? " shadow-navbar" : ""}`}>
         <div className="w-5/6 flex flex-wrap items-center justify-between py-2 mx-auto">
           <Link to="/" className="flex items-center">
             <img src="/icons/LogoXAU.svg" className="h-12" alt="Landwind Logo" />

@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import ScrollReveal from "scrollreveal";
 
 const News = () => {
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
   return (
-    <div className="flex flex-col items-center pt-2">
+    <div className="flex flex-col items-center pt-2 fade-in">
       <div className="text-2xl font-bold font-sans tracking-wider leading-9 text-center text-white">To Keep You Update 🔥</div>
       <div className="mx-auto w-5/6 mt-6 max-md:max-w-full">
         <div className="flex justify-center gap-5 pb-4 max-md:flex-col max-md:gap-5">

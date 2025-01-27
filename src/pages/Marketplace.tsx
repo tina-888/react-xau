@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const Marketplace = () => {
   useEffect(() => {
-    document.title = "Leaderboard | XAU";
+    document.title = "Marketplace | XAU";
   }, []);
 
   return (

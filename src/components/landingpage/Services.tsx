@@ -1,8 +1,19 @@
+import { useEffect } from "react";
+import ScrollReveal from "scrollreveal";
+
 const Services = () => {
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
   return (
-    <div className=" items-center justify-between pt-2 relative w-full">
+    <div className=" items-center justify-between pt-2 relative w-full fade-in">
       <div className="relative ">
-        <div className="container mx-auto w-5/6">
+        <div className="container mx-auto w-5/6 ">
           <div className="mx-auto text-center">
             <h2 className=" text-2xl font-sans font-bold tracking-tight text-white  md:text-4xl ">We Offer You These Services</h2>
           </div>

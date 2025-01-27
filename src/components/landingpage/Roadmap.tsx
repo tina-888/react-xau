@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import roadmapData from "../../data/landingpage/Roadmap";
+import ScrollReveal from "scrollreveal";
 
 const Roadmap = () => {
+  useEffect(() => {
+    ScrollReveal().reveal(".fade-in", {
+      duration: 3000,
+
+      distance: "0px",
+      reset: true,
+    });
+  }, []);
   return (
-    <div className="items-center justify-between relative w-full pt-2">
+    <div className="items-center justify-between relative w-full pt-2 fade-in">
       <div className="mx-auto w-5/6  max-md:max-w-full">
         <div className="self-center text-2xl font-bold font-sans tracking-wider leading-9 text-center text-white">Our Roadmap</div>
         <div className="max-md:max-w-full">
