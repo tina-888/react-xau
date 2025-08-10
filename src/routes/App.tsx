@@ -28,11 +28,13 @@ const App = () => {
       if (new Date().getTime() > expiration) {
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("expiration");
-        return false;
+        // return false;
+        return true;
       }
       return localStorage.getItem("isLoggedIn") === "true";
     }
-    return false;
+    // return false;
+    return true;
   });
 
   const handleLogin = () => {
@@ -43,7 +45,8 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    // setIsLoggedIn(false);
+    setIsLoggedIn(true);
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("expiration"); // Clear expiration timestamp
   };
