@@ -40,7 +40,7 @@ const Confetti = () => {
 
         {/* iamage */}
         <div className=" flex items-center justify-center w-full">
-          <img className="w-1/2 h-full py-12 max-md:w-full" src="https://pub-8d0181f3c475440db5bb645b0917592a.r2.dev/cobavga.gif " alt="Circular animation" />
+          <img className="w-1/2 h-full py-12 max-md:w-full" src="/images/cobavga.gif" alt="Circular animation" />
         </div>
         <div className="">
           <span className="absolute py-6 mx-auto flex border w-fit bg-gradient-to-r blur-xl from-[#ad7600] via-[#D69900] to-[#865600] bg-clip-text text-5xl box-content font-extrabold text-transparent text-center select-none">
